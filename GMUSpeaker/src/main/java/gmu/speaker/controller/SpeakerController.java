@@ -38,6 +38,14 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(value = "/requestspeakersubmit")
+	public ModelAndView handlerequestspeakersubmit(
+			@ModelAttribute RequestSpeaker requestSpeaker) {
+		ModelAndView modelView = new ModelAndView("requestspeaker");
+		modelView.addObject("requestspeaker", new RequestSpeaker());
+		return modelView;
+	}
+
 	@RequestMapping(value = "/becomespeaker")
 	public ModelAndView handleBecomespeakerRequest() {
 		ModelAndView modelView = new ModelAndView("becomespeaker");
@@ -47,9 +55,9 @@ public class SpeakerController {
 
 	@RequestMapping(value = "/becomespeakersubmit")
 	public ModelAndView handleBecomespeakersubmit(
-			@ModelAttribute BecomeSpeaker speaker) {
+			@ModelAttribute BecomeSpeaker becomeSpeaker) {
 		ModelAndView modelView = new ModelAndView("becomespeaker");
-		modelView.addObject("becomeSpeaker", new BecomeSpeaker());
+		modelView.addObject("becomeSpeaker", becomeSpeaker);
 		return modelView;
 	}
 

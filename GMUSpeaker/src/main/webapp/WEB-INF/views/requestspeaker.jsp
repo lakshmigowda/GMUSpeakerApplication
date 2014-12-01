@@ -21,7 +21,7 @@
 		<h4 style="margin-left: 20px;">Organization Information</h4>
 		<form:form method="POST" action="/GMUSpeaker/requestspeakersubmit"
 			commandName="requestSpeaker" id="requestspeakerform">
-			<table class="table">
+			<table class="table borderless">
 				<tr>
 					<td width="200px">Organization:</td>
 					<td><form:input class="form-control" path="organization"></form:input></td>
@@ -61,7 +61,7 @@
 			</table>
 
 			<h4 style="margin-left: 20px;">Event Information</h4>
-			<table>
+			<table class="table borderless">
 				<tr>
 					<td width="200px">Date of the event:</td>
 					<td><form:input class="form-control" path="date"></form:input></td>
@@ -140,15 +140,15 @@
 					<td colspan="5"><h4 style="margin-left: 20px;">Comments</h4></td>
 				</tr>
 				<tr>
-					<td colspan="5"><form:input class="form-control"
-							path="comments" style="height: 180px;width:500px;"></form:input></td>
+					<td colspan="2"><form:textarea class="form-control"
+							path="comments" cols="50" rows="5" /></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td align="right"><input id="submit" type="button"
+					<td align="right"><input id="submit" type="submit"
 						class="btn btn-primary" value="Submit"></td>
 				</tr>
 			</table>

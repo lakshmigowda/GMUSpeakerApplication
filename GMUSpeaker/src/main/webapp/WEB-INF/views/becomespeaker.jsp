@@ -1,5 +1,5 @@
-<become-speaker></become-speaker><%@ page language="java"
-	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -79,8 +79,8 @@
 					<td>Email:</td>
 					<td><form:input class="form-control" path="email" /></td>
 					<td></td>
-					<td colspan="2" rowspan="2"><form:input class="form-control"
-							path="biography" /></td>
+					<td colspan="2" rowspan="2"><form:textarea
+							class="form-control" path="biography" cols="50" rows="5" /></td>
 				</tr>
 				<tr>
 					<td>Topic Title:</td>
@@ -238,7 +238,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="right"><input id="submit" type="button"
+					<td align="right"><input id="submit" type="submit"
 						class="btn btn-primary" value="Submit"></td>
 				</tr>
 			</table>
