@@ -1,10 +1,5 @@
 package gmu.speaker.utility;
 
-import gmu.speaker.model.RequestSpeaker;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.lang.reflect.Type;
 import java.util.Date;
 
@@ -18,32 +13,6 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 public class Utility {
-
-	private static final String REQUEST_SPEAKERS_FILE = "C:\\GMUSpeakers\\requestspeakers.txt";
-
-	public static String StoreRequestSpeaker(RequestSpeaker requestSpeaker)
-			throws Exception {
-		ObjectOutputStream os = null;
-		try {
-
-			File file = new File(REQUEST_SPEAKERS_FILE);
-
-			if (!file.exists())
-				os = new ObjectOutputStream(new FileOutputStream(
-						REQUEST_SPEAKERS_FILE));
-
-			else
-				os = new AppendObjectOutputStream(new FileOutputStream(
-						REQUEST_SPEAKERS_FILE, true));
-
-			os.writeObject(requestSpeaker);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			os.close();
-		}
-		return "success";
-	}
 
 	public static Gson getGson() {
 		GsonBuilder builder = new GsonBuilder();
