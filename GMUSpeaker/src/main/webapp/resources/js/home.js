@@ -1,35 +1,31 @@
 $(document).ready(function() {
 	var self = $(this);
 
-	self.becomespeaker();
+	self.findspeaker();
 
-	$("#home").click(function() {
-		self.home();
-	});
 	$("#findspeaker").click(function() {
 		self.findspeaker();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
 	});
 	$("#requestspeaker").click(function() {
 		self.requestspeaker();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
 	});
 	$("#becomespeaker").click(function() {
 		self.becomespeaker();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
 	});
-	$("#faq").click(function() {
-		self.home();
-	});
+
 	$("#search").click(function() {
-		self.home();
+		self.search();
 	});
 
 });
 
 (function($) {
-	jQuery.fn.home = function() {
-		$.get("/GMUSpeaker/home", function(data, status) {
-			$('#result').html(data);
-		});
-	};
 	jQuery.fn.findspeaker = function() {
 		$.get("/GMUSpeaker/findspeaker", function(data, status) {
 			$('#result').html(data);
@@ -42,11 +38,6 @@ $(document).ready(function() {
 	};
 	jQuery.fn.becomespeaker = function() {
 		$.get("/GMUSpeaker/becomespeaker", function(data, status) {
-			$('#result').html(data);
-		});
-	};
-	jQuery.fn.faq = function() {
-		$.get("/GMUSpeaker/faq", function(data, status) {
 			$('#result').html(data);
 		});
 	};
