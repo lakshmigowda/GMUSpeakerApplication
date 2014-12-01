@@ -1,6 +1,7 @@
 package gmu.speaker.model;
 
-public class BecomeSpeaker {
+public class Speaker {
+	private String id;
 	private String name;
 	private String workPhone;
 	private String homePhone;
@@ -81,6 +82,14 @@ public class BecomeSpeaker {
 
 	public void setBiography(String biography) {
 		this.biography = biography;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

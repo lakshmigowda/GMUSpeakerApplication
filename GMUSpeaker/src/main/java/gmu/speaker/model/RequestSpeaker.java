@@ -1,6 +1,7 @@
 package gmu.speaker.model;
 
-public class SearchTalk {
+public class RequestSpeaker {
+	private String id;
 	private String organization;
 	private String organizationaddressline1;
 	private String orgperson;
@@ -261,5 +262,13 @@ public class SearchTalk {
 
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

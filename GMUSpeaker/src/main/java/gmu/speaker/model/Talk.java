@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Talk {
 
+	private String id;
 	private List<String> categories;
 	private List<String> avs;
 	private String topicTitle;
@@ -30,5 +31,13 @@ public class Talk {
 
 	public void setTopicTitle(String topicTitle) {
 		this.topicTitle = topicTitle;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

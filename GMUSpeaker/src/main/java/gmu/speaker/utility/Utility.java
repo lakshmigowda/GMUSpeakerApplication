@@ -1,6 +1,6 @@
 package gmu.speaker.utility;
 
-import gmu.speaker.model.SearchTalk;
+import gmu.speaker.model.RequestSpeaker;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,7 +21,7 @@ public class Utility {
 
 	private static final String REQUEST_SPEAKERS_FILE = "C:\\GMUSpeakers\\requestspeakers.txt";
 
-	public static String StoreRequestSpeaker(SearchTalk requestSpeaker)
+	public static String StoreRequestSpeaker(RequestSpeaker requestSpeaker)
 			throws Exception {
 		ObjectOutputStream os = null;
 		try {

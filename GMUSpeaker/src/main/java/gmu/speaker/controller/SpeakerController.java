@@ -1,7 +1,7 @@
 package gmu.speaker.controller;
 
-import gmu.speaker.model.BecomeSpeaker;
-import gmu.speaker.model.SearchTalk;
+import gmu.speaker.model.Speaker;
+import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Talk;
 
 import org.springframework.stereotype.Controller;
@@ -35,28 +35,28 @@ public class SpeakerController {
 	@RequestMapping(value = "/requestspeaker")
 	public ModelAndView handleRequestspeakerRequest() {
 		ModelAndView modelView = new ModelAndView("requestspeaker");
-		modelView.addObject("requestSpeaker", new SearchTalk());
+		modelView.addObject("requestSpeaker", new RequestSpeaker());
 		return modelView;
 	}
 
 	@RequestMapping(value = "/requestspeakersubmit")
 	public ModelAndView handlerequestspeakersubmit(
-			@ModelAttribute SearchTalk requestSpeaker) {
+			@ModelAttribute RequestSpeaker requestSpeaker) {
 		ModelAndView modelView = new ModelAndView("requestspeaker");
-		modelView.addObject("requestspeaker", new SearchTalk());
+		modelView.addObject("requestspeaker", new RequestSpeaker());
 		return modelView;
 	}
 
 	@RequestMapping(value = "/becomespeaker")
 	public ModelAndView handleBecomespeakerRequest() {
 		ModelAndView modelView = new ModelAndView("becomespeaker");
-		modelView.addObject("becomeSpeaker", new BecomeSpeaker());
+		modelView.addObject("becomeSpeaker", new Speaker());
 		return modelView;
 	}
 
 	@RequestMapping(value = "/becomespeakersubmit")
 	public ModelAndView handleBecomespeakersubmit(
-			@ModelAttribute BecomeSpeaker becomeSpeaker) {
+			@ModelAttribute Speaker becomeSpeaker) {
 		ModelAndView modelView = new ModelAndView("becomespeaker");
 		modelView.addObject("becomeSpeaker", becomeSpeaker);
 		return modelView;
