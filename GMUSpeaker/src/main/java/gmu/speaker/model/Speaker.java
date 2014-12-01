@@ -1,6 +1,12 @@
 package gmu.speaker.model;
 
-public class Speaker {
+import java.io.Serializable;
+
+public class Speaker implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8273652756683479036L;
 	private String id;
 	private String name;
 	private String workPhone;

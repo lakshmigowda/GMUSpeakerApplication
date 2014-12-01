@@ -1,9 +1,14 @@
 package gmu.speaker.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Talk {
+public class Talk implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3995947032920922269L;
 	private String id;
 	private List<String> categories;
 	private List<String> avs;

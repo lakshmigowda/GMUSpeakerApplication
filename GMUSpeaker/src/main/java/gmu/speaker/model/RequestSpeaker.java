@@ -1,6 +1,12 @@
 package gmu.speaker.model;
 
-public class RequestSpeaker {
+import java.io.Serializable;
+
+public class RequestSpeaker implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8456539398018674109L;
 	private String id;
 	private String organization;
 	private String organizationaddressline1;

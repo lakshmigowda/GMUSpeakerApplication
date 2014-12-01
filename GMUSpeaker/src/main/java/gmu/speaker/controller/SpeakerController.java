@@ -3,6 +3,7 @@ package gmu.speaker.controller;
 import gmu.speaker.model.Speaker;
 import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Talk;
+import gmu.speaker.utility.FileManager;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,8 +43,8 @@ public class SpeakerController {
 	@RequestMapping(value = "/requestspeakersubmit")
 	public ModelAndView handlerequestspeakersubmit(
 			@ModelAttribute RequestSpeaker requestSpeaker) {
-		ModelAndView modelView = new ModelAndView("requestspeaker");
-		modelView.addObject("requestspeaker", new RequestSpeaker());
+		FileManager.StoreRequestSpeaker(requestSpeaker);
+		ModelAndView modelView = new ModelAndView("app");
 		return modelView;
 	}
 
@@ -57,8 +58,8 @@ public class SpeakerController {
 	@RequestMapping(value = "/becomespeakersubmit")
 	public ModelAndView handleBecomespeakersubmit(
 			@ModelAttribute Speaker becomeSpeaker) {
-		ModelAndView modelView = new ModelAndView("becomespeaker");
-		modelView.addObject("becomeSpeaker", becomeSpeaker);
+		FileManager.StoreSpeaker(becomeSpeaker);
+		ModelAndView modelView = new ModelAndView("app");
 		return modelView;
 	}
 
@@ -66,6 +67,13 @@ public class SpeakerController {
 	public ModelAndView handleAddtalkRequest() {
 		ModelAndView modelView = new ModelAndView("addtalk");
 		modelView.addObject("addTalk", new Talk());
+		return modelView;
+	}
+
+	@RequestMapping(value = "/addtalksubmit")
+	public ModelAndView handleAddtalksubmit(@ModelAttribute Talk addTalk) {
+		FileManager.StoreTalk(addTalk);
+		ModelAndView modelView = new ModelAndView("app");
 		return modelView;
 	}
 
