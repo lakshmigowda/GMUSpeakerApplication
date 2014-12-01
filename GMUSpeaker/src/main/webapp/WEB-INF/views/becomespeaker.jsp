@@ -216,7 +216,13 @@
 										value="Washington Metropolitan Regional Issues" />Washington
 									Metropolitan Regional Issues</td>
 								<td />
-								<td></td>
+								<td>
+									<div class="input-group">
+										<form:checkbox path="categories" value="" />
+										<form:input class="form-control" placeholder="Other"
+											path="categories" />
+									</div>
+								</td>
 							</tr>
 						</table></td>
 				</tr>
@@ -235,8 +241,10 @@
 								<td />
 								<td width="200px;"><form:checkbox path="avs" value="Laptop" />Laptop</td>
 								<td />
-								<td><form:checkbox path="avs" value="LCD Projector" />LCD
-									Projector</td>
+								<td width="150px;"><form:checkbox path="avs"
+										value="LCD Projector" />LCD Projector</td>
+								<td />
+								<td></td>
 							</tr>
 							<tr height="40px;">
 								<td><form:checkbox path="avs" value="Screen" />Screen</td>
@@ -248,6 +256,12 @@
 										value="White Board and Markers" />White Board and Markers</td>
 								<td />
 								<td><form:checkbox path="avs" value="None" />None</td>
+								<td />
+								<td><div class="input-group">
+										<form:checkbox path="avs" value="" />
+										<form:input class="form-control" path="avs"
+											placeholder="Other" />
+									</div></td>
 							</tr>
 						</table>
 					</td>
