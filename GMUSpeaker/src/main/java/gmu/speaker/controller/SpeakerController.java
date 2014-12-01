@@ -2,6 +2,7 @@ package gmu.speaker.controller;
 
 import gmu.speaker.model.BecomeSpeaker;
 import gmu.speaker.model.SearchTalk;
+import gmu.speaker.model.Talk;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,15 +62,10 @@ public class SpeakerController {
 		return modelView;
 	}
 
-	@RequestMapping(value = "/faq")
-	public ModelAndView handleFaqRequest() {
-		ModelAndView modelView = new ModelAndView("faq");
-		return modelView;
-	}
-
-	@RequestMapping(value = "/search")
-	public ModelAndView handleSearchRequest() {
-		ModelAndView modelView = new ModelAndView("search");
+	@RequestMapping(value = "/addtalk")
+	public ModelAndView handleAddtalkRequest() {
+		ModelAndView modelView = new ModelAndView("addtalk");
+		modelView.addObject("addTalk", new Talk());
 		return modelView;
 	}
 

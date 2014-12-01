@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var self = $(this);
 
-	self.searchtalk();
+	self.addtalk();
 
 	$("#searchtalk").click(function() {
 		self.searchtalk();
@@ -19,8 +19,10 @@ $(document).ready(function() {
 		$(this.parentNode).addClass("active");
 	});
 
-	$("#search").click(function() {
-		self.search();
+	$("#addtalk").click(function() {
+		self.addtalk();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
 	});
 
 });
@@ -41,8 +43,8 @@ $(document).ready(function() {
 			$('#result').html(data);
 		});
 	};
-	jQuery.fn.search = function() {
-		$.get("/GMUSpeaker/search", function(data, status) {
+	jQuery.fn.addtalk = function() {
+		$.get("/GMUSpeaker/addtalk", function(data, status) {
 			$('#result').html(data);
 		});
 	};

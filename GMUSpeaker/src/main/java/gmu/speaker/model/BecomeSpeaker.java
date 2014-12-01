@@ -1,20 +1,15 @@
 package gmu.speaker.model;
 
-import java.util.List;
-
 public class BecomeSpeaker {
 	private String name;
 	private String workPhone;
 	private String homePhone;
 	private String cellPhone;
 	private String email;
-	private String topicTitle;
 	private String masonEmployee;
 	private String retired;
 	private String masonAlumnus;
 	private String biography;
-	private List<String> categories;
-	private List<String> avs;
 
 	public String getName() {
 		return name;
@@ -56,14 +51,6 @@ public class BecomeSpeaker {
 		this.email = email;
 	}
 
-	public String getTopicTitle() {
-		return topicTitle;
-	}
-
-	public void setTopicTitle(String topicTitle) {
-		this.topicTitle = topicTitle;
-	}
-
 	public String getMasonEmployee() {
 		return masonEmployee;
 	}
@@ -94,22 +81,6 @@ public class BecomeSpeaker {
 
 	public void setBiography(String biography) {
 		this.biography = biography;
-	}
-
-	public List<String> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<String> categories) {
-		this.categories = categories;
-	}
-
-	public List<String> getAvs() {
-		return avs;
-	}
-
-	public void setAvs(List<String> avs) {
-		this.avs = avs;
 	}
 
 }

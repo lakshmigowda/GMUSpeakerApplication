@@ -18,7 +18,7 @@
 	<nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<h3 class="navbar-text">Find Speaker</h3>
+			<h3 class="navbar-text">Search Talk</h3>
 		</div>
 	</div>
 	</nav>
