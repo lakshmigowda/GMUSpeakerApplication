@@ -15,12 +15,16 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
+	<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<h3 class="navbar-text">Find Speaker</h3>
+		</div>
+	</div>
+	</nav>
 	<div id="content" style="width: 800px;">
 		<table class="table borderless">
 			<tbody>
-				<tr>
-					<td colspan="3"><h3>Find Speaker</h3></td>
-				</tr>
 				<tr>
 					<td colspan="3"><p>Choose from categories or speakers then
 							click the "submit" button. As an alternative, you may use keyword

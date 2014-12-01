@@ -16,23 +16,36 @@
 </head>
 <body>
 	<div id="content">
-		<h3>Become Speaker</h3>
-		<p>
-			If you are a current or retired member of Mason s faculty or staff,
-			or a Mason alum, and would like to participate in the Mason Speakers
-			program, please complete the form below. All speakers are involved on
-			a volunteer basis. Speaking engagements are made by the <a
-				href="http://relations.gmu.edu/community-relations/" target="_blank">Office
-				of Community and Local Government Relations </a> and free of charge to
-			community organizations.
-		</p>
-		<p>
-			For more information about the program, or to notify us of a problem
-			with submission of this form, please contact <a
-				href="mailto:sgallag5@gmu.edu" target="_blank">Sarah Gallagher</a> ,
-			Mason Speakers Coordinator, via <a href="mailto:sgallag5@gmu.edu"
-				target="_blank">email</a> or by calling (703) 993-8761.
-		</p>
+		<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h3 class="navbar-text">Become Speaker</h3>
+			</div>
+		</div>
+		</nav>
+
+		<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<p class="navbar-text">
+					If you are a current or retired member of Mason s faculty or staff,
+					or a Mason alum, and would like to participate in the Mason
+					Speakers program, please complete the form below. All speakers are
+					involved on a volunteer basis. Speaking engagements are made by the
+					<a href="http://relations.gmu.edu/community-relations/"
+						target="_blank">Office of Community and Local Government
+						Relations </a> and free of charge to community organizations.
+				</p>
+				<p class="navbar-text">
+					For more information about the program, or to notify us of a
+					problem with submission of this form, please contact <a
+						href="mailto:sgallag5@gmu.edu" target="_blank">Sarah Gallagher</a>
+					, Mason Speakers Coordinator, via <a href="mailto:sgallag5@gmu.edu"
+						target="_blank">email</a> or by calling (703) 993-8761.
+				</p>
+			</div>
+		</div>
+		</nav>
 		<form:form method="POST" action="/GMUSpeaker/becomespeakersubmit"
 			commandName="becomeSpeaker" id="becomespeakerform">
 			<table class="table borderless">
@@ -95,12 +108,14 @@
 				<tr>
 					<td><table>
 							<tr height="40px;">
-								<td><form:checkbox path="categories" value="Aging" />Aging</td>
+								<td width="300px;"><form:checkbox path="categories"
+										value="Aging" />Aging</td>
 								<td />
-								<td><form:checkbox path="categories"
+								<td width="200px;"><form:checkbox path="categories"
 										value="American culture" />American culture</td>
 								<td />
-								<td><form:checkbox path="categories" value="Arts" />Arts</td>
+								<td width="300px;"><form:checkbox path="categories"
+										value="Arts" />Arts</td>
 								<td />
 								<td><form:checkbox path="categories"
 										value="Business and Finance" />Business and Finance</td>
@@ -206,19 +221,19 @@
 						</table></td>
 				</tr>
 				<tr>
-					<td>A/V</td>
+					<td>A/V:</td>
 				</tr>
 				<tr>
 					<td>
 						<table>
 							<tr height="40px;">
-								<td><form:checkbox path="avs" value="Flip Chart" />Flip
-									Chart</td>
+								<td width="150px;"><form:checkbox path="avs"
+										value="Flip Chart" />Flip Chart</td>
 								<td />
-								<td><form:checkbox path="avs" value="Internet Acess" />Internet
-									Acess</td>
+								<td width="150px;"><form:checkbox path="avs"
+										value="Internet Acess" />Internet Acess</td>
 								<td />
-								<td><form:checkbox path="avs" value="Laptop" />Laptop</td>
+								<td width="200px;"><form:checkbox path="avs" value="Laptop" />Laptop</td>
 								<td />
 								<td><form:checkbox path="avs" value="LCD Projector" />LCD
 									Projector</td>
