@@ -1,7 +1,7 @@
 package gmu.speaker.controller;
 
 import gmu.speaker.model.BecomeSpeaker;
-import gmu.speaker.model.RequestSpeaker;
+import gmu.speaker.model.SearchTalk;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,9 +23,9 @@ public class SpeakerController {
 		return modelView;
 	}
 
-	@RequestMapping(value = "/findspeaker")
-	public ModelAndView handleFindspeakerRequest() {
-		ModelAndView modelView = new ModelAndView("findspeaker");
+	@RequestMapping(value = "/searchtalk")
+	public ModelAndView handleSearchtalkRequest() {
+		ModelAndView modelView = new ModelAndView("searchtalk");
 		modelView.addObject("categoryList", null);
 		modelView.addObject("speakerList", null);
 		return modelView;
@@ -34,15 +34,15 @@ public class SpeakerController {
 	@RequestMapping(value = "/requestspeaker")
 	public ModelAndView handleRequestspeakerRequest() {
 		ModelAndView modelView = new ModelAndView("requestspeaker");
-		modelView.addObject("requestSpeaker", new RequestSpeaker());
+		modelView.addObject("requestSpeaker", new SearchTalk());
 		return modelView;
 	}
 
 	@RequestMapping(value = "/requestspeakersubmit")
 	public ModelAndView handlerequestspeakersubmit(
-			@ModelAttribute RequestSpeaker requestSpeaker) {
+			@ModelAttribute SearchTalk requestSpeaker) {
 		ModelAndView modelView = new ModelAndView("requestspeaker");
-		modelView.addObject("requestspeaker", new RequestSpeaker());
+		modelView.addObject("requestspeaker", new SearchTalk());
 		return modelView;
 	}
 

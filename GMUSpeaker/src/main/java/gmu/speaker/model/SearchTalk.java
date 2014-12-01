@@ -1,6 +1,6 @@
 package gmu.speaker.model;
 
-public class RequestSpeaker {
+public class SearchTalk {
 	private String organization;
 	private String organizationaddressline1;
 	private String orgperson;

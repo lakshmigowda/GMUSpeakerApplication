@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	var self = $(this);
 
-	self.findspeaker();
+	self.searchtalk();
 
-	$("#findspeaker").click(function() {
-		self.findspeaker();
+	$("#searchtalk").click(function() {
+		self.searchtalk();
 		$(".nav-sidebar li").removeClass("active");
 		$(this.parentNode).addClass("active");
 	});
@@ -26,8 +26,8 @@ $(document).ready(function() {
 });
 
 (function($) {
-	jQuery.fn.findspeaker = function() {
-		$.get("/GMUSpeaker/findspeaker", function(data, status) {
+	jQuery.fn.searchtalk = function() {
+		$.get("/GMUSpeaker/searchtalk", function(data, status) {
 			$('#result').html(data);
 		});
 	};

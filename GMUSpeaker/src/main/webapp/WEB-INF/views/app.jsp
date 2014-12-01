@@ -46,8 +46,7 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#" id="findspeaker">Find
-							Speaker</a></li>
+					<li class="active"><a href="#" id="searchtalk">Search Talk</a></li>
 					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
 					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
 				</ul>
