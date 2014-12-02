@@ -1,6 +1,6 @@
 package gmu.speaker.model;
 
-public class Register {
+public class User {
 
 	private String name;
 	private String email;
