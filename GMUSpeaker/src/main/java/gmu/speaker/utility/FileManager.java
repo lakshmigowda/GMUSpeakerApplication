@@ -1,8 +1,10 @@
 package gmu.speaker.utility;
 
+import gmu.speaker.model.Login;
 import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Speaker;
 import gmu.speaker.model.Talk;
+import gmu.speaker.model.User;
 
 import java.io.EOFException;
 import java.io.File;
@@ -20,6 +22,7 @@ public class FileManager {
 	private static final String REQUEST_SPEAKERS_FILE = "C:\\GMUSpeakers\\requestspeakers.txt";
 	private static final String SPEAKERS_FILE = "C:\\GMUSpeakers\\speakers.txt";
 	private static final String TALKS_FILE = "C:\\GMUSpeakers\\talks.txt";
+	private static final String USERS_FILE = "C:\\GMUSpeakers\\users.txt";
 
 	public static String StoreRequestSpeaker(RequestSpeaker requestSpeaker) {
 		if (requestSpeaker != null) {
@@ -308,6 +311,66 @@ public class FileManager {
 			Talk talk = talkIterator.next();
 			if (talk.getId().equals(id)) {
 				return talk;
+			}
+		}
+		return null;
+	}
+
+	public static String storeUser(User user) {
+		if (user != null) {
+			user.setId(UUID.randomUUID().toString());
+		}
+		ObjectOutputStream os = null;
+		try {
+
+			File file = new File(USERS_FILE);
+
+			if (!file.exists())
+				os = new ObjectOutputStream(new FileOutputStream(USERS_FILE));
+
+			else
+				os = new AppendObjectOutputStream(new FileOutputStream(
+						USERS_FILE, true));
+
+			os.writeObject(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				os.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return "success";
+	}
+
+	public static ArrayList<User> getUserlist() {
+		ArrayList<User> usrelist = new ArrayList<User>();
+		try {
+			FileInputStream fis = new FileInputStream(USERS_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			while (true) {
+				try {
+					usrelist.add((User) ois.readObject());
+				} catch (EOFException e) {
+					ois.close();
+					return usrelist;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return usrelist;
+	}
+
+	public static String checklogin(Login login) {
+		ArrayList<User> usrelist = getUserlist();
+		Iterator<User> userIterator = usrelist.iterator();
+		while (userIterator.hasNext()) {
+			User user = userIterator.next();
+			if (user.getEmail().equals(login.getEmail())) {
+				return user.getName();
 			}
 		}
 		return null;

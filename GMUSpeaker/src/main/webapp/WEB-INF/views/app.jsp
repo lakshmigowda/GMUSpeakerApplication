@@ -43,7 +43,8 @@
 												</tr>
 												<tr>
 													<td>Password:</td>
-													<td><form:input class="form-control" path="password"></form:input></td>
+													<td><form:password class="form-control"
+															path="password"></form:password></td>
 												</tr>
 												<tr>
 													<td align="right" colspan="2"><input id="submit"
@@ -68,11 +69,12 @@
 											</tr>
 											<tr>
 												<td>Password:</td>
-												<td><form:input class="form-control" path="password"></form:input></td>
+												<td><form:password class="form-control" path="password"></form:password></td>
 											</tr>
 											<tr>
 												<td>Password(Confirm):</td>
-												<td><form:input class="form-control" path="repassword"></form:input></td>
+												<td><form:password class="form-control"
+														path="repassword"></form:password></td>
 											</tr>
 											<tr>
 												<td>Role:</td>

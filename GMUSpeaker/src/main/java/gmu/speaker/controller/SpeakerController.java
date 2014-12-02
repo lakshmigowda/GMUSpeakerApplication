@@ -25,6 +25,34 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(value = "/loginsubmit")
+	public ModelAndView handleLoginsubmit(@ModelAttribute Login login) {
+		String name = FileManager.checklogin(login);
+		ModelAndView modelView = new ModelAndView("home");
+		modelView.addObject("username", name);
+		return modelView;
+	}
+
+	@RequestMapping(value = "/addadmin")
+	public String handleAddAdmin() {
+		User user = new User();
+		user.setEmail("admin@gmu.edu");
+		user.setName("admin");
+		user.setPassword("admin");
+		user.setRepassword("admin");
+		user.setRole("admin");
+		FileManager.storeUser(user);
+		return "success";
+	}
+
+	@RequestMapping(value = "/registersubmit")
+	public ModelAndView handleRegistersubmit(@ModelAttribute User register) {
+		FileManager.storeUser(register);
+		ModelAndView modelView = new ModelAndView("home");
+		modelView.addObject("username", register.getName());
+		return modelView;
+	}
+
 	@RequestMapping(value = "/home")
 	public ModelAndView handleWelcomeRequest() {
 		ModelAndView modelView = new ModelAndView("home");

@@ -32,7 +32,7 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Welcome User!</a></li>
+				<li><a href="#">Welcome ${username}!</a></li>
 				<li><a href="#">Logout</a></li>
 			</ul>
 			<form class="navbar-form navbar-right">

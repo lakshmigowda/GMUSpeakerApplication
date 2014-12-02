@@ -1,12 +1,27 @@
 package gmu.speaker.model;
 
-public class User {
+import java.io.Serializable;
 
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5307781480756807719L;
 	private String name;
 	private String email;
 	private String password;
 	private String repassword;
 	private String role;
+	private String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
