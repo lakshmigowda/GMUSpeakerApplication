@@ -13,33 +13,91 @@
 <link rel="stylesheet" type="text/css"
 	href="/GMUSpeaker/resources/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="/GMUSpeaker/resources/css/dashboard.css" />
+	href="/GMUSpeaker/resources/css/signin.css" />
 </head>
-
 
 <body>
 	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="" id="loginModal">
+					<div class="modal-header">
+						<h3>Welcome to GMUSpeaker !</h3>
+					</div>
+					<div class="modal-body">
+						<div class="well">
+							<ul class="nav nav-tabs" id="tabs">
+								<li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+								<li><a href="#register" data-toggle="tab">Create
+										Account</a></li>
+							</ul>
+							<div id="myTabContent" class="tab-content">
+								<div class="tab-pane active in" id="login">
+									<div class="container">
+										<form:form method="POST" action="/GMUSpeaker/loginsubmit"
+											commandName="login" id="loginform" class="form-signin">
+											<table class="table borderless">
+												<tr>
+													<td>Email</td>
+													<td><form:input class="form-control" path="email"></form:input></td>
+												</tr>
+												<tr>
+													<td>Password:</td>
+													<td><form:input class="form-control" path="password"></form:input></td>
+												</tr>
+												<tr>
+													<td align="right" colspan="2"><input id="submit"
+														type="submit" class="btn btn-primary" value="Login"></td>
+												</tr>
+											</table>
+										</form:form>
+									</div>
+								</div>
 
-		<form class="form-signin" role="form">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="inputEmail" class="sr-only">Email address</label> <input
-				type="email" id="inputEmail" class="form-control"
-				placeholder="Email address" required autofocus> <label
-				for="inputPassword" class="sr-only">Password</label> <input
-				type="password" id="inputPassword" class="form-control"
-				placeholder="Password" required>
-			<div class="checkbox">
-				<label> <input type="checkbox" value="remember-me">
-					Remember me
-				</label>
+								<div class="tab-pane fade" id="register">
+									<form:form method="POST" action="/GMUSpeaker/registersubmit"
+										commandName="register" id="registerform" class="form-register">
+										<table class="table borderless">
+											<tr>
+												<td>Name</td>
+												<td><form:input class="form-control" path="name"></form:input></td>
+											</tr>
+											<tr>
+												<td>Email</td>
+												<td><form:input class="form-control" path="email"></form:input></td>
+											</tr>
+											<tr>
+												<td>Password:</td>
+												<td><form:input class="form-control" path="password"></form:input></td>
+											</tr>
+											<tr>
+												<td>Password(Confirm):</td>
+												<td><form:input class="form-control" path="repassword"></form:input></td>
+											</tr>
+											<tr>
+												<td>Role:</td>
+												<td><form:select class="form-control" path="role">
+														<option value="speaker">Speaker</option>
+														<option value="user">User</option>
+													</form:select></td>
+											</tr>
+											<tr>
+												<td align="right" colspan="2"><input id="submit"
+													type="submit" class="btn btn-primary" value="Submit"></td>
+											</tr>
+										</table>
+									</form:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-				in</button>
-		</form>
-
+		</div>
 	</div>
+
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
-	<script src="/GMUSpeaker/resources/js/home.js"></script>
+	<script src="/GMUSpeaker/resources/js/app.js"></script>
 	<script src="/GMUSpeaker/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

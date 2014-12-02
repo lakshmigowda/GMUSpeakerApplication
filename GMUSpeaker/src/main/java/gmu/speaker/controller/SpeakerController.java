@@ -1,5 +1,7 @@
 package gmu.speaker.controller;
 
+import gmu.speaker.model.Login;
+import gmu.speaker.model.Register;
 import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Speaker;
 import gmu.speaker.model.Talk;
@@ -18,6 +20,8 @@ public class SpeakerController {
 	@RequestMapping(value = "/app")
 	public ModelAndView handleApp() {
 		ModelAndView modelView = new ModelAndView("app");
+		modelView.addObject("login", new Login());
+		modelView.addObject("register", new Register());
 		return modelView;
 	}
 

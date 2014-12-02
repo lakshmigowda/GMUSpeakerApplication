@@ -105,7 +105,3 @@ body {
 	display: inline-block;
 	border-radius: 50%;
 }
-
-.borderless td {
-	border: none !important;
-}
