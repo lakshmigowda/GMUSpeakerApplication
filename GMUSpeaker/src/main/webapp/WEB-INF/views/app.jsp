@@ -77,8 +77,8 @@
 											<tr>
 												<td>Role:</td>
 												<td><form:select class="form-control" path="role">
+														<option value="viewer">Viewer</option>
 														<option value="speaker">Speaker</option>
-														<option value="user">User</option>
 													</form:select></td>
 											</tr>
 											<tr>
