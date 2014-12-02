@@ -16,13 +16,7 @@
 </head>
 <body>
 	<div id="content">
-		<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<h3 class="navbar-text">Become Speaker</h3>
-			</div>
-		</div>
-		</nav>
+		<div class="well">Become Speaker</div>
 
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">

@@ -16,8 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class SpeakerController {
 
 	@RequestMapping(value = "/app")
-	public ModelAndView handleWelcomeRequest() {
+	public ModelAndView handleApp() {
 		ModelAndView modelView = new ModelAndView("app");
+		return modelView;
+	}
+
+	@RequestMapping(value = "/home")
+	public ModelAndView handleWelcomeRequest() {
+		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
 

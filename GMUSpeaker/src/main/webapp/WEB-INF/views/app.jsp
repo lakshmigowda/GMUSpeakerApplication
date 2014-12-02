@@ -18,47 +18,25 @@
 
 
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-				aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">GMU Speaker</a>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Welcome User!</a></li>
-				<li><a href="#">Logout</a></li>
-			</ul>
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search...">
-			</form>
-		</div>
-	</div>
-	</nav>
+	<div class="container">
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#" id="searchtalk">Search Talk</a></li>
-					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
-					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
-					<li><a href="#" id="addtalk">Add Talk</a></li>
-					<li><a href="#" id="deletespeaker">Delete Speaker</a></li>
-					<li><a href="#" id="editspeaker">Edit Speaker</a></li>
-					<li><a href="#" id="deletetalk">Delete Talk</a></li>
-					<li><a href="#" id="edittalk">Edit Talk</a></li>
-				</ul>
+		<form class="form-signin" role="form">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label for="inputEmail" class="sr-only">Email address</label> <input
+				type="email" id="inputEmail" class="form-control"
+				placeholder="Email address" required autofocus> <label
+				for="inputPassword" class="sr-only">Password</label> <input
+				type="password" id="inputPassword" class="form-control"
+				placeholder="Password" required>
+			<div class="checkbox">
+				<label> <input type="checkbox" value="remember-me">
+					Remember me
+				</label>
 			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"
-				id="result"></div>
-		</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+				in</button>
+		</form>
+
 	</div>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
 	<script src="/GMUSpeaker/resources/js/home.js"></script>

@@ -15,13 +15,7 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Search Talk</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Search Talk</div>
 	<div id="content" style="width: 800px;">
 		<table class="table borderless">
 			<tbody>

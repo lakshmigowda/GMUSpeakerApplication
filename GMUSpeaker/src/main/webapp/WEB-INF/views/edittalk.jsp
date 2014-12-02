@@ -17,13 +17,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Edit Talk</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Edit Talk</div>
 	<p>Choose the talk to edit by clicking "Edit" button.</p>
 	<div id="content">
 		<table class="table">

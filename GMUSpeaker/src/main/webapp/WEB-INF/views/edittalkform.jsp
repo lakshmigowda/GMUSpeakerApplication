@@ -15,13 +15,7 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Edit Talk</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Edit Talk</div>
 	<div id="content">
 		<form:form method="POST" action="/GMUSpeaker/edittalksubmit"
 			commandName="editTalk" id="edittalkform">

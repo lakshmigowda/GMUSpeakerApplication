@@ -17,13 +17,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Delete Talk</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Delete Talk</div>
 	<p>Choose the talk to delete by clicking "Delete" button.</p>
 	<div id="content">
 		<table class="table">

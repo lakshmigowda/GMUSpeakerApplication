@@ -15,13 +15,7 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Request Speaker</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Request Speaker</div>
 	<div id="content">
 		<h4 style="margin-left: 20px;">Organization Information</h4>
 		<form:form method="POST" action="/GMUSpeaker/requestspeakersubmit"

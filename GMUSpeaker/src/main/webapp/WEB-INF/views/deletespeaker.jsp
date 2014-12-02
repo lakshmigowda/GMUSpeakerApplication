@@ -17,13 +17,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Delete Speaker</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Delete Speaker</div>
 	<p>Choose the speaker to delete by clicking "Delete" button.</p>
 	<div id="content">
 		<table class="table">

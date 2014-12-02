@@ -17,13 +17,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<h3 class="navbar-text">Edit Speaker</h3>
-		</div>
-	</div>
-	</nav>
+	<div class="well">Edit Speaker</div>
 	<p>Choose the speaker to edit by clicking "Edit" button.</p>
 	<div id="content">
 		<table class="table">
