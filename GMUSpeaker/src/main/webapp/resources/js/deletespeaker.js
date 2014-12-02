@@ -8,7 +8,5 @@ $(document).ready(
 								function(data, status) {
 									$('#result').html(data);
 								});
-
 					});
-
 		});

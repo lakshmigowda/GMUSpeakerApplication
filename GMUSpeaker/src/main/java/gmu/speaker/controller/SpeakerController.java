@@ -88,6 +88,21 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(value = "/deletetalk")
+	public ModelAndView handleDeletetalkRequest() {
+		ModelAndView modelView = new ModelAndView("deletetalk");
+		modelView.addObject("talks", FileManager.getTalklist());
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/deletetalksubmit")
+	public ModelAndView handleDeleteTalkSbmit(@RequestParam String id) {
+		FileManager.deleteTalk(id);
+		ModelAndView modelView = new ModelAndView("deletetalk");
+		modelView.addObject("talks", FileManager.getSpeakerlist());
+		return modelView;
+	}
+
 	@RequestMapping(value = "/editspeaker")
 	public ModelAndView handleEditspeakerRequest() {
 		ModelAndView modelView = new ModelAndView("editspeaker");

@@ -128,6 +128,25 @@ public class FileManager {
 		return speakerlist;
 	}
 
+	public static ArrayList<Talk> getTalklist() {
+		ArrayList<Talk> talklist = new ArrayList<Talk>();
+		try {
+			FileInputStream fis = new FileInputStream(TALKS_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			while (true) {
+				try {
+					talklist.add((Talk) ois.readObject());
+				} catch (EOFException e) {
+					ois.close();
+					return talklist;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return talklist;
+	}
+
 	public static ArrayList<Talk> getTalksForSpeaker(Speaker speaker) {
 		ArrayList<Talk> talklist = new ArrayList<Talk>();
 		try {
@@ -159,19 +178,7 @@ public class FileManager {
 	public static String deleteSpeaker(String id) {
 		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
 		try {
-			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-
-			while (true) {
-				try {
-					speakerlist.add((Speaker) ois.readObject());
-				} catch (EOFException e) {
-					break;
-				}
-			}
-
-			ois.close();
-			fis.close();
+			speakerlist = getSpeakerlist();
 
 			Iterator<Speaker> speakerIterator = speakerlist.iterator();
 			while (speakerIterator.hasNext()) {
@@ -195,22 +202,37 @@ public class FileManager {
 		return "Success";
 	}
 
-	public static String editSpeaker(Speaker newspeaker) {
-		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
+	public static String deleteTalk(String id) {
+		ArrayList<Talk> talklist = new ArrayList<Talk>();
 		try {
-			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
-			ObjectInputStream ois = new ObjectInputStream(fis);
+			talklist = getTalklist();
 
-			while (true) {
-				try {
-					speakerlist.add((Speaker) ois.readObject());
-				} catch (EOFException e) {
-					break;
+			Iterator<Talk> talkIterator = talklist.iterator();
+			while (talkIterator.hasNext()) {
+				Talk talk = talkIterator.next();
+				if (talk.getId().equals(id)) {
+					talkIterator.remove();
 				}
 			}
 
-			ois.close();
-			fis.close();
+			new File(TALKS_FILE).delete();
+
+			talkIterator = talklist.iterator();
+			while (talkIterator.hasNext()) {
+				Talk talk = talkIterator.next();
+				StoreTalk(talk);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "Success";
+	}
+
+	public static String editSpeaker(Speaker newspeaker) {
+		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
+		try {
+			speakerlist = getSpeakerlist();
 
 			Iterator<Speaker> speakerIterator = speakerlist.iterator();
 			while (speakerIterator.hasNext()) {
@@ -229,6 +251,36 @@ public class FileManager {
 			while (speakerIterator.hasNext()) {
 				Speaker speaker = speakerIterator.next();
 				StoreSpeaker(speaker);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "Success";
+	}
+
+	public static String editTalk(Talk newtalk) {
+		ArrayList<Talk> talklist = new ArrayList<Talk>();
+		try {
+			talklist = getTalklist();
+
+			Iterator<Talk> talkIterator = talklist.iterator();
+			while (talkIterator.hasNext()) {
+				Talk talk = talkIterator.next();
+				if (talk.getId().equals(newtalk.getId())) {
+					talkIterator.remove();
+				}
+			}
+
+			new File(TALKS_FILE).delete();
+
+			// need to update talks
+			StoreTalk(newtalk);
+
+			talkIterator = talklist.iterator();
+			while (talkIterator.hasNext()) {
+				Talk talk = talkIterator.next();
+				StoreTalk(talk);
 			}
 
 		} catch (Exception e) {
