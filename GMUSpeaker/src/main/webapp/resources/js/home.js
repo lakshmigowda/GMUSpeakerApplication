@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var self = $(this);
 
-	self.addtalk();
+	self.searchtalk();
 
 	$("#searchtalk").click(function() {
 		self.searchtalk();

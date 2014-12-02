@@ -28,7 +28,7 @@ $(document)
 													success : function(data,
 															textStatus, jqXHR) {
 														window.location
-																.replace("http://54.69.156.15:8080/GMUSpeaker/app");
+																.replace("http://localhost:8080/GMUSpeaker/home");
 													},
 													error : function(jqXHR,
 															textStatus,

@@ -47,7 +47,7 @@
 															path="password"></form:password></td>
 												</tr>
 												<tr>
-													<td align="right" colspan="2"><input id="submit"
+													<td align="right" colspan="2"><input id="loginbtn"
 														type="submit" class="btn btn-primary" value="Login"></td>
 												</tr>
 											</table>
@@ -84,7 +84,7 @@
 													</form:select></td>
 											</tr>
 											<tr>
-												<td align="right" colspan="2"><input id="submit"
+												<td align="right" colspan="2"><input id="registerbtn"
 													type="submit" class="btn btn-primary" value="Submit"></td>
 											</tr>
 										</table>

@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@SessionAttributes("username")
 public class SpeakerController {
 
 	@RequestMapping(value = "/app")
@@ -34,19 +36,6 @@ public class SpeakerController {
 		return modelView;
 	}
 
-	@RequestMapping(value = "/addadmin")
-	@ResponseBody
-	public String handleAddAdmin() {
-		User user = new User();
-		user.setEmail("admin@gmu.edu");
-		user.setName("admin");
-		user.setPassword("admin");
-		user.setRepassword("admin");
-		user.setRole("admin");
-		FileManager.storeUser(user);
-		return "success";
-	}
-
 	@RequestMapping(value = "/registersubmit")
 	public ModelAndView handleRegistersubmit(@ModelAttribute User register) {
 		FileManager.storeUser(register);
@@ -56,7 +45,7 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/home")
-	public ModelAndView handleWelcomeRequest() {
+	public ModelAndView handleHomeRequest() {
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
@@ -80,7 +69,7 @@ public class SpeakerController {
 	public ModelAndView handlerequestspeakersubmit(
 			@ModelAttribute RequestSpeaker requestSpeaker) {
 		FileManager.StoreRequestSpeaker(requestSpeaker);
-		ModelAndView modelView = new ModelAndView("app");
+		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
 
@@ -95,7 +84,7 @@ public class SpeakerController {
 	public ModelAndView handleBecomespeakersubmit(
 			@ModelAttribute Speaker becomeSpeaker) {
 		FileManager.StoreSpeaker(becomeSpeaker);
-		ModelAndView modelView = new ModelAndView("app");
+		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
 
@@ -109,7 +98,7 @@ public class SpeakerController {
 	@RequestMapping(value = "/addtalksubmit")
 	public ModelAndView handleAddtalksubmit(@ModelAttribute Talk addTalk) {
 		FileManager.StoreTalk(addTalk);
-		ModelAndView modelView = new ModelAndView("app");
+		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
 
@@ -161,7 +150,7 @@ public class SpeakerController {
 	public ModelAndView handleEditspeakersubmit(
 			@ModelAttribute Speaker editSpeaker) {
 		FileManager.editSpeaker(editSpeaker);
-		ModelAndView modelView = new ModelAndView("app");
+		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
 
@@ -182,7 +171,20 @@ public class SpeakerController {
 	@RequestMapping(value = "/edittalksubmit")
 	public ModelAndView handleEdittalksubmit(@ModelAttribute Talk editTalk) {
 		FileManager.editTalk(editTalk);
-		ModelAndView modelView = new ModelAndView("app");
+		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
+	}
+
+	@RequestMapping(value = "/addadmin")
+	@ResponseBody
+	public String handleAddAdmin() {
+		User user = new User();
+		user.setEmail("admin@gmu.edu");
+		user.setName("admin");
+		user.setPassword("admin");
+		user.setRepassword("admin");
+		user.setRole("admin");
+		FileManager.storeUser(user);
+		return "success";
 	}
 }
