@@ -2,9 +2,9 @@ $(document)
 		.ready(
 				function() {
 
-					$("#editspeakerbtn").click(
+					$(".editspeakerbtn").click(
 							function() {
-								var id = $('#editspeakercombo').val();
+								var id = $(this).attr('id');
 								$.get(
 										"/GMUSpeaker/editspeakerrequest?id="
 												+ id, function(data, status) {

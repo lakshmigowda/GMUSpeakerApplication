@@ -24,31 +24,30 @@
 		</div>
 	</div>
 	</nav>
+	<p>Choose the speaker to edit by clicking "Edit" button.</p>
 	<div id="content">
-		<table class="table borderless">
-			<tbody>
-				<tr>
-					<td colspan="3"><p>Choose the speaker to edit and click
-							the "edit" button.</p></td>
-				</tr>
-				<tr>
-					<td>Speaker:</td>
-					<td><select class="form-control" id="editspeakercombo">
-							<c:choose>
-								<c:when test="${fn:length(speakers) > 0}">
-									<c:forEach var="speaker" items="${speakers}"
-										varStatus="counter">
-										<option value="${speaker.id}">${speaker.name}</option>
-									</c:forEach>
-								</c:when>
-								<c:otherwise>
-								</c:otherwise>
-							</c:choose>
-					</select></td>
-					<td><button type="button" class="btn btn-primary"
-							id="editspeakerbtn">Edit</button></td>
-				</tr>
-			</tbody>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Delete</th>
+			</tr>
+			<c:choose>
+				<c:when test="${fn:length(speakers) > 0}">
+					<c:forEach var="speaker" items="${speakers}" varStatus="counter">
+
+						<tr>
+							<td>${speaker.name}</td>
+							<td>${speaker.email}</td>
+							<td><button type="button"
+									class="btn btn-primary editspeakerbtn" id="${speaker.id}">Edit</button></td>
+						</tr>
+
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
 		</table>
 	</div>
 	<script src="/GMUSpeaker/resources/js/editspeaker.js"></script>
