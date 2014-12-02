@@ -51,6 +51,7 @@
 					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
 					<li><a href="#" id="addtalk">Add Talk</a></li>
 					<li><a href="#" id="deletespeaker">Delete Speaker</a></li>
+					<li><a href="#" id="editspeaker">Edit Speaker</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"

@@ -31,6 +31,12 @@ $(document).ready(function() {
 		$(this.parentNode).addClass("active");
 	});
 
+	$("#editspeaker").click(function() {
+		self.editspeaker();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
+	});
+
 });
 
 (function($) {
@@ -56,6 +62,11 @@ $(document).ready(function() {
 	};
 	jQuery.fn.deletespeaker = function() {
 		$.get("/GMUSpeaker/deletespeaker", function(data, status) {
+			$('#result').html(data);
+		});
+	};
+	jQuery.fn.editspeaker = function() {
+		$.get("/GMUSpeaker/editspeaker", function(data, status) {
 			$('#result').html(data);
 		});
 	};

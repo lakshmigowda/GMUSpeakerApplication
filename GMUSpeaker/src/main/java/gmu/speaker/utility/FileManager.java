@@ -7,7 +7,6 @@ import gmu.speaker.model.Talk;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -194,5 +193,59 @@ public class FileManager {
 			e.printStackTrace();
 		}
 		return "Success";
+	}
+
+	public static String editSpeaker(Speaker newspeaker) {
+		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
+		try {
+			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			while (true) {
+				try {
+					speakerlist.add((Speaker) ois.readObject());
+				} catch (EOFException e) {
+					break;
+				}
+			}
+
+			ois.close();
+			fis.close();
+
+			Iterator<Speaker> speakerIterator = speakerlist.iterator();
+			while (speakerIterator.hasNext()) {
+				Speaker speaker = speakerIterator.next();
+				if (speaker.getId().equals(newspeaker.getId())) {
+					speakerIterator.remove();
+				}
+			}
+
+			new File(SPEAKERS_FILE).delete();
+
+			// need to update talks
+			StoreSpeaker(newspeaker);
+
+			speakerIterator = speakerlist.iterator();
+			while (speakerIterator.hasNext()) {
+				Speaker speaker = speakerIterator.next();
+				StoreSpeaker(speaker);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "Success";
+	}
+
+	public static Speaker getSpeaker(String id) {
+		ArrayList<Speaker> speakerlist = getSpeakerlist();
+		Iterator<Speaker> speakerIterator = speakerlist.iterator();
+		while (speakerIterator.hasNext()) {
+			Speaker speaker = speakerIterator.next();
+			if (speaker.getId().equals(id)) {
+				return speaker;
+			}
+		}
+		return null;
 	}
 }

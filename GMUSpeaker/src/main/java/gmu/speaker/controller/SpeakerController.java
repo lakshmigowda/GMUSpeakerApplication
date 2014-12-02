@@ -87,4 +87,26 @@ public class SpeakerController {
 		modelView.addObject("speakers", FileManager.getSpeakerlist());
 		return modelView;
 	}
+
+	@RequestMapping(value = "/editspeaker")
+	public ModelAndView handleEditspeakerRequest() {
+		ModelAndView modelView = new ModelAndView("editspeaker");
+		modelView.addObject("speakers", FileManager.getSpeakerlist());
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/editspeakerrequest")
+	public ModelAndView handleEditSpeakerSbmit(@RequestParam String id) {
+		ModelAndView modelView = new ModelAndView("editspeakerform");
+		modelView.addObject("editSpeaker", FileManager.getSpeaker(id));
+		return modelView;
+	}
+
+	@RequestMapping(value = "/editspeakersubmit")
+	public ModelAndView handleEditspeakersubmit(
+			@ModelAttribute Speaker editSpeaker) {
+		FileManager.editSpeaker(editSpeaker);
+		ModelAndView modelView = new ModelAndView("app");
+		return modelView;
+	}
 }
