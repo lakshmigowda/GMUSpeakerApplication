@@ -1,10 +1,10 @@
 package gmu.speaker.controller;
 
 import gmu.speaker.model.Login;
-import gmu.speaker.model.User;
 import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Speaker;
 import gmu.speaker.model.Talk;
+import gmu.speaker.model.User;
 import gmu.speaker.utility.FileManager;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -34,6 +35,7 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/addadmin")
+	@ResponseBody
 	public String handleAddAdmin() {
 		User user = new User();
 		user.setEmail("admin@gmu.edu");
