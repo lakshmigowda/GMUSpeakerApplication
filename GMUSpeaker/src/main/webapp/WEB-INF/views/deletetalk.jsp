@@ -34,7 +34,7 @@
 				<th>Delete</th>
 			</tr>
 			<c:choose>
-				<c:when test="${fn:length(speakers) > 0}">
+				<c:when test="${fn:length(talks) > 0}">
 					<c:forEach var="talk" items="${talks}" varStatus="counter">
 
 						<tr>

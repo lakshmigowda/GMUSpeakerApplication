@@ -199,6 +199,7 @@
 						class="btn btn-primary" value="Submit"></td>
 				</tr>
 			</table>
+			<form:input path="id" hidden="true"></form:input>
 		</form:form>
 	</div>
 	<script src="/GMUSpeaker/resources/js/edittalk.js"></script>

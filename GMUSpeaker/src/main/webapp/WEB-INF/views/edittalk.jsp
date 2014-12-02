@@ -34,7 +34,7 @@
 				<th>Delete</th>
 			</tr>
 			<c:choose>
-				<c:when test="${fn:length(speakers) > 0}">
+				<c:when test="${fn:length(talks) > 0}">
 					<c:forEach var="talk" items="${talks}" varStatus="counter">
 
 						<tr>
@@ -42,7 +42,7 @@
 							<td>${talk.categories}</td>
 							<td>${talk.avs}</td>
 							<td><button type="button"
-									class="btn btn-primary edittalkbtn" id="${talk.id}">Delete</button></td>
+									class="btn btn-primary edittalkbtn" id="${talk.id}">Edit</button></td>
 						</tr>
 
 					</c:forEach>

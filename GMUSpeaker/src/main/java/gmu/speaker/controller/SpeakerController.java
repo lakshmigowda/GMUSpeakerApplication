@@ -99,7 +99,7 @@ public class SpeakerController {
 	public ModelAndView handleDeleteTalkSbmit(@RequestParam String id) {
 		FileManager.deleteTalk(id);
 		ModelAndView modelView = new ModelAndView("deletetalk");
-		modelView.addObject("talks", FileManager.getSpeakerlist());
+		modelView.addObject("talks", FileManager.getTalklist());
 		return modelView;
 	}
 
