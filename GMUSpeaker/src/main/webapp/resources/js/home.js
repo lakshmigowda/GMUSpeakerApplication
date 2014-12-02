@@ -37,6 +37,18 @@ $(document).ready(function() {
 		$(this.parentNode).addClass("active");
 	});
 
+	$("#deletetalk").click(function() {
+		self.deletetalk();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
+	});
+
+	$("#edittalk").click(function() {
+		self.edittalk();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
+	});
+
 });
 
 (function($) {
@@ -67,6 +79,16 @@ $(document).ready(function() {
 	};
 	jQuery.fn.editspeaker = function() {
 		$.get("/GMUSpeaker/editspeaker", function(data, status) {
+			$('#result').html(data);
+		});
+	};
+	jQuery.fn.deletetalk = function() {
+		$.get("/GMUSpeaker/deletetalk", function(data, status) {
+			$('#result').html(data);
+		});
+	};
+	jQuery.fn.edittalk = function() {
+		$.get("/GMUSpeaker/edittalk", function(data, status) {
 			$('#result').html(data);
 		});
 	};

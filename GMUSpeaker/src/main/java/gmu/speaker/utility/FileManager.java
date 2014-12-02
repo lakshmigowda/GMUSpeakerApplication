@@ -300,4 +300,16 @@ public class FileManager {
 		}
 		return null;
 	}
+
+	public static Talk getTalk(String id) {
+		ArrayList<Talk> talklist = getTalklist();
+		Iterator<Talk> talkIterator = talklist.iterator();
+		while (talkIterator.hasNext()) {
+			Talk talk = talkIterator.next();
+			if (talk.getId().equals(id)) {
+				return talk;
+			}
+		}
+		return null;
+	}
 }

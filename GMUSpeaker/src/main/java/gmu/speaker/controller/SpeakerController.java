@@ -124,4 +124,25 @@ public class SpeakerController {
 		ModelAndView modelView = new ModelAndView("app");
 		return modelView;
 	}
+
+	@RequestMapping(value = "/edittalk")
+	public ModelAndView handleEdittalkRequest() {
+		ModelAndView modelView = new ModelAndView("edittalk");
+		modelView.addObject("talks", FileManager.getTalklist());
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/edittalkrequest")
+	public ModelAndView handleEditTalkSbmit(@RequestParam String id) {
+		ModelAndView modelView = new ModelAndView("edittalkform");
+		modelView.addObject("editTalk", FileManager.getTalk(id));
+		return modelView;
+	}
+
+	@RequestMapping(value = "/edittalksubmit")
+	public ModelAndView handleEdittalksubmit(@ModelAttribute Talk editTalk) {
+		FileManager.editTalk(editTalk);
+		ModelAndView modelView = new ModelAndView("app");
+		return modelView;
+	}
 }
