@@ -25,6 +25,12 @@ $(document).ready(function() {
 		$(this.parentNode).addClass("active");
 	});
 
+	$("#deletespeaker").click(function() {
+		self.deletespeaker();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
+	});
+
 });
 
 (function($) {
@@ -45,6 +51,11 @@ $(document).ready(function() {
 	};
 	jQuery.fn.addtalk = function() {
 		$.get("/GMUSpeaker/addtalk", function(data, status) {
+			$('#result').html(data);
+		});
+	};
+	jQuery.fn.deletespeaker = function() {
+		$.get("/GMUSpeaker/deletespeaker", function(data, status) {
 			$('#result').html(data);
 		});
 	};

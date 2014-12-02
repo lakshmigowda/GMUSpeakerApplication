@@ -104,4 +104,6 @@
 
 		</form:form>
 	</div>
+	<script src="/GMUSpeaker/resources/js/becomespeaker.js"></script>
+	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
 </body>

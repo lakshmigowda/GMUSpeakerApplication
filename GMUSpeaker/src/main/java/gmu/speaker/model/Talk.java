@@ -13,6 +13,7 @@ public class Talk implements Serializable {
 	private List<String> categories;
 	private List<String> avs;
 	private String topicTitle;
+	private String speakerID;
 
 	public List<String> getCategories() {
 		return categories;
@@ -44,5 +45,13 @@ public class Talk implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getSpeakerID() {
+		return speakerID;
+	}
+
+	public void setSpeakerID(String speakerID) {
+		this.speakerID = speakerID;
 	}
 }

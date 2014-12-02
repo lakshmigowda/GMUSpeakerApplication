@@ -1,13 +1,15 @@
 package gmu.speaker.controller;
 
-import gmu.speaker.model.Speaker;
 import gmu.speaker.model.RequestSpeaker;
+import gmu.speaker.model.Speaker;
 import gmu.speaker.model.Talk;
 import gmu.speaker.utility.FileManager;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -16,12 +18,6 @@ public class SpeakerController {
 	@RequestMapping(value = "/app")
 	public ModelAndView handleWelcomeRequest() {
 		ModelAndView modelView = new ModelAndView("app");
-		return modelView;
-	}
-
-	@RequestMapping(value = "/home")
-	public ModelAndView handleHomeRequest() {
-		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
 
@@ -77,4 +73,18 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(value = "/deletespeaker")
+	public ModelAndView handleDeletespeakerRequest() {
+		ModelAndView modelView = new ModelAndView("deletespeaker");
+		modelView.addObject("speakers", FileManager.getSpeakerlist());
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/deletespeakersubmit")
+	public ModelAndView handleDeleteSpeakerSbmit(@RequestParam String id) {
+		FileManager.deleteSpeaker(id);
+		ModelAndView modelView = new ModelAndView("deletespeaker");
+		modelView.addObject("speakers", FileManager.getSpeakerlist());
+		return modelView;
+	}
 }

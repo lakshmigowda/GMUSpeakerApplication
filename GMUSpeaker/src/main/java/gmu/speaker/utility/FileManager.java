@@ -4,10 +4,16 @@ import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Speaker;
 import gmu.speaker.model.Talk;
 
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.UUID;
 
 public class FileManager {
@@ -104,4 +110,89 @@ public class FileManager {
 		return "success";
 	}
 
+	public static ArrayList<Speaker> getSpeakerlist() {
+		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
+		try {
+			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			while (true) {
+				try {
+					speakerlist.add((Speaker) ois.readObject());
+				} catch (EOFException e) {
+					ois.close();
+					return speakerlist;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return speakerlist;
+	}
+
+	public static ArrayList<Talk> getTalksForSpeaker(Speaker speaker) {
+		ArrayList<Talk> talklist = new ArrayList<Talk>();
+		try {
+			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			while (true) {
+				try {
+					talklist.add((Talk) ois.readObject());
+				} catch (EOFException e) {
+					ois.close();
+					return talklist;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Iterator<Talk> talkIterator = talklist.iterator();
+		while (talkIterator.hasNext()) {
+			Talk talk = talkIterator.next();
+			if (!talk.getSpeakerID().equals(speaker.getId())) {
+				talkIterator.remove();
+			}
+		}
+
+		return talklist;
+	}
+
+	public static String deleteSpeaker(String id) {
+		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
+		try {
+			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			while (true) {
+				try {
+					speakerlist.add((Speaker) ois.readObject());
+				} catch (EOFException e) {
+					break;
+				}
+			}
+
+			ois.close();
+			fis.close();
+
+			Iterator<Speaker> speakerIterator = speakerlist.iterator();
+			while (speakerIterator.hasNext()) {
+				Speaker speaker = speakerIterator.next();
+				if (speaker.getId().equals(id)) {
+					speakerIterator.remove();
+				}
+			}
+
+			new File(SPEAKERS_FILE).delete();
+
+			speakerIterator = speakerlist.iterator();
+			while (speakerIterator.hasNext()) {
+				Speaker speaker = speakerIterator.next();
+				StoreSpeaker(speaker);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "Success";
+	}
 }
