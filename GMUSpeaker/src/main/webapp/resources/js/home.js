@@ -3,6 +3,12 @@ $(document).ready(function() {
 
 	self.searchtalk();
 
+	$("#logout").click(function() {
+		$.get("/GMUSpeaker/logout", function(data, status) {
+			window.location.replace("http://localhost:8080/GMUSpeaker/app");
+		});
+	});
+
 	$("#searchtalk").click(function() {
 		self.searchtalk();
 		$(".nav-sidebar li").removeClass("active");

@@ -44,6 +44,15 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/logout")
+	public ModelAndView handleLogoutSbmit() {
+		ModelAndView modelView = new ModelAndView("app");
+		modelView.addObject("login", new Login());
+		modelView.addObject("register", new User());
+		modelView.addObject("username", "");
+		return modelView;
+	}
+
 	@RequestMapping(value = "/home")
 	public ModelAndView handleHomeRequest() {
 		ModelAndView modelView = new ModelAndView("home");
