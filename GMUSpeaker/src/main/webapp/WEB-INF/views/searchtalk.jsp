@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,76 +29,96 @@
 				</tr>
 				<tr>
 					<td>Categories:</td>
-					<td><select id="category" name="category" class="form-control">
-							<option value="all" selected="selected">ALL CATEGORIES</option>
-							<option value="aging">Aging</option>
-							<option value="american-culture">American Culture</option>
-							<option value="arts">Arts</option>
-							<option value="business-finance">Business and Finance</option>
-							<option value="childhood-development-parenting">Childhood
+					<td><select id="categorycombo" name="category"
+						class="form-control">
+							<option value="allcategories" selected="selected">ALL
+								CATEGORIES</option>
+							<option value="Aging">Aging</option>
+							<option value="American Culture">American Culture</option>
+							<option value="Arts">Arts</option>
+							<option value="Business and Finance">Business and
+								Finance</option>
+							<option value="Childhood
+								Development and Parenting">Childhood
 								Development and Parenting</option>
-							<option value="communication">communication</option>
-							<option value="crimeviolence">Crime/Violence</option>
-							<option value="economic-development">Economic
+							<option value="Communication">Communication</option>
+							<option value="Crime/Violence">Crime/Violence</option>
+							<option value="Economic
+								Development">Economic
 								Development</option>
-							<option value="education-teaching">Education and
-								Teaching</option>
-							<option value="environment">Environment</option>
-							<option value="ethics">Ethics</option>
-							<option value="george-mason-university">George Mason
-								University</option>
-							<option value="government-politics">Government and
-								Politics</option>
-							<option value="history">History</option>
-							<option value="human-resource-managementpersonnel">Human
+							<option value="Education and
+								Teaching">Education
+								and Teaching</option>
+							<option value="Environment">Environment</option>
+							<option value="Ethics">Ethics</option>
+							<option value="George Mason
+								University">George
+								Mason University</option>
+							<option value="Government and
+								Politics">Government
+								and Politics</option>
+							<option value="History">History</option>
+							<option value="Human
+								Resource Management/Personnel">Human
 								Resource Management/Personnel</option>
-							<option value="judaic-studies">Judaic Studies</option>
-							<option value="law-enforcement">Law Enforcement</option>
-							<option value="leadership-career-development">Leadership
+							<option value="Judaic Studies">Judaic Studies</option>
+							<option value="Law Enforcement">Law Enforcement</option>
+							<option value="Leadership
+								and Career Development">Leadership
 								and Career Development</option>
-							<option value="nonprofit-organizations-charities">Nonprofit
+							<option value="Nonprofit
+								Organizations and Charities">Nonprofit
 								Organizations and Charities</option>
-							<option value="philosophy">Philosophy</option>
-							<option value="psychology">Psychology</option>
-							<option value="public-policy-the-law">Public Policy and
-								the Law</option>
-							<option value="real-estate">Real Estate</option>
-							<option value="religion">Religion</option>
-							<option value="research">Research</option>
-							<option value="safety">Safety</option>
-							<option value="transportation">Transportation</option>
-							<option value="washington-metropolitan-regional-issues">Washington
+							<option value="Philosophy">Philosophy</option>
+							<option value="Psychology">Psychology</option>
+							<option value="Public Policy and
+								the Law">Public
+								Policy and the Law</option>
+							<option value="Real Estate">Real Estate</option>
+							<option value="Religion">Religion</option>
+							<option value="Research">Research</option>
+							<option value="Safety">Safety</option>
+							<option value="Transportation">Transportation</option>
+							<option value="Washington
+								Metropolitan Regional Issues">Washington
+								Metropolitan Regional Issues</option>
+							<option value="Science, Technology, Engineering and Math">Science,
+								Technology, Engineering and Math</option>
+							<option value="Washington Metropolitan Regional Issues">Washington
 								Metropolitan Regional Issues</option>
 					</select></td>
-					<td><button type="button" class="btn btn-primary">Submit</button></td>
+					<td><button type="button" id="categorysearchbtn"
+							class="btn btn-primary">Submit</button></td>
 				</tr>
 				<tr>
 					<td>Speakers:</td>
-					<td><select id="speaker" name="speaker" class="form-control">
-							<option value="all" selected="selected">ALL SPEAKERS</option>
-							<option value="alan-abramson">Abramson, Alan</option>
-							<option value="katrin-b-anacker">Anacker, Katrin B.</option>
-							<option value="david-anderson">Anderson, David</option>
-							<option value="robert-baker">Baker, Robert</option>
-							<option value="doris-bitler">Bitler, Doris</option>
-							<option value="johanna-bockman">Bockman, Johanna</option>
-							<option value="don-boileau">Boileau, Don</option>
-							<option value="lucy-boland">Boland, Lucy</option>
-							<option value="susan-c-bon">Bon, Susan C.</option>
-							<option value="mariama-boney">Boney, Mariama</option>
-							<option value="kirk-borne">Borne, Kirk</option>
-							<option value="karen-bune">Bune, Karen</option>
-							<option value="ted-burnes">Burnes, Ted</option>
+					<td><select id="speakercombo" name="speaker"
+						class="form-control">
+							<option value="allspeakers" selected="selected">ALL
+								SPEAKERS</option>
+							<c:choose>
+								<c:when test="${fn:length(speakers) > 0}">
+									<c:forEach var="speaker" items="${speakers}"
+										varStatus="counter">
+										<option value="${speaker.name}">${speaker.name}</option>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 					</select></td>
-					<td><button type="button" class="btn btn-primary">Submit</button></td>
+					<td><button type="button" id="speakersearchbtn"
+							class="btn btn-primary">Submit</button></td>
 				</tr>
 				<tr>
 					<td>Keyword Search:</td>
-					<td><input id="keyword" type="text" class="form-control" /></td>
-					<td><button type="button" class="btn btn-primary">Submit</button></td>
+					<td><input id="keywordinput" type="text" class="form-control" /></td>
+					<td><button type="button" id="keywordsearchbtn"
+							class="btn btn-primary">Submit</button></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
+	<script src="/GMUSpeaker/resources/js/searchtalk.js"></script>
+	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
 </body>

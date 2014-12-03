@@ -53,7 +53,7 @@
 										value="Aging" />Aging</td>
 								<td />
 								<td width="200px;"><form:checkbox path="categories"
-										value="American culture" />American culture</td>
+										value="American Culture" />American Culture</td>
 								<td />
 								<td width="300px;"><form:checkbox path="categories"
 										value="Arts" />Arts</td>
@@ -63,8 +63,9 @@
 							</tr>
 							<tr height="40px;">
 								<td><form:checkbox path="categories"
-										value="Childhood Development & Parenting" />Childhood
-									Development & Parenting</td>
+										value="Childhood
+								Development and Parenting" />Childhood
+									Development and Parenting</td>
 								<td />
 								<td><form:checkbox path="categories" value="Communication" />Communication
 								</td>
@@ -81,7 +82,7 @@
 										value="Economic Development" />Economic Development</td>
 								<td />
 								<td><form:checkbox path="categories"
-										value="Education & Teaching" />Education & Teaching</td>
+										value="Education and Teaching" />Education and Teaching</td>
 								<td />
 								<td><form:checkbox path="categories" value="Environment" />Environment
 								</td>
@@ -94,11 +95,11 @@
 										value="George Mason University" />George Mason University</td>
 								<td />
 								<td><form:checkbox path="categories"
-										value="Government & Politics" />Government & Politics</td>
+										value="Government and Politics" />Government and Politics</td>
 								<td />
 								<td><form:checkbox path="categories"
-										value="Health, Nutrition, Exercise & Sports" />Health,
-									Nutrition, Exercise & Sports</td>
+										value="Health, Nutrition, Exercise and Sports" />Health,
+									Nutrition, Exercise and Sports</td>
 								<td />
 								<td><form:checkbox path="categories" value="History" />History
 								</td>
@@ -115,19 +116,19 @@
 										value="Law Enforcement" />Law Enforcement</td>
 								<td />
 								<td><form:checkbox path="categories"
-										value="Leadership & Career Development" />Leadership & Career
-									Development</td>
+										value="Leadership and Career Development" />Leadership and
+									Career Development</td>
 							</tr>
 							<tr height="40px;">
 								<td><form:checkbox path="categories"
-										value="Literature, Poetry & Writing" />Literature, Poetry &
-									Writing</td>
+										value="Literature, Poetry and Writing" />Literature, Poetry
+									and Writing</td>
 								<td />
 								<td><form:checkbox path="categories" value="None" />None</td>
 								<td />
 								<td><form:checkbox path="categories"
-										value="Nonprofit Organizations & Charities" />Nonprofit
-									Organizations & Charities</td>
+										value="Nonprofit Organizations and Charities" />Nonprofit
+									Organizations and Charities</td>
 								<td />
 								<td><form:checkbox path="categories" value="Philosophy" />Philosophy
 								</td>
@@ -137,7 +138,7 @@
 								</td>
 								<td />
 								<td><form:checkbox path="categories"
-										value="Public Policy & the Law" />Public Policy & the Law</td>
+										value="Public Policy and the Law" />Public Policy and the Law</td>
 								<td />
 								<td><form:checkbox path="categories" value="Religion" />Religion
 								</td>
@@ -147,8 +148,8 @@
 							</tr>
 							<tr height="40px;">
 								<td><form:checkbox path="categories"
-										value="Science, Technology, Engineering & Math" />Science,
-									Technology, Engineering & Math</td>
+										value="Science, Technology, Engineering and Math" />Science,
+									Technology, Engineering and Math</td>
 								<td />
 								<td><form:checkbox path="categories" value="Transportation" />Transportation
 								</td>

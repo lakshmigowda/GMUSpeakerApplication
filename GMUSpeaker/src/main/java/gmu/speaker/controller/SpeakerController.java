@@ -75,8 +75,7 @@ public class SpeakerController {
 	@RequestMapping(value = "/searchtalk")
 	public ModelAndView handleSearchtalkRequest() {
 		ModelAndView modelView = new ModelAndView("searchtalk");
-		modelView.addObject("categoryList", null);
-		modelView.addObject("speakerList", null);
+		modelView.addObject("speakers", FileManager.getSpeakerlist());
 		return modelView;
 	}
 
@@ -211,6 +210,35 @@ public class SpeakerController {
 	public ModelAndView handleGettalksRequest() {
 		ModelAndView modelView = new ModelAndView("listtalks");
 		modelView.addObject("talks", FileManager.getTalklist());
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/categorysearch")
+	public ModelAndView handleCategorySearchSbmit(@RequestParam String category) {
+		ModelAndView modelView = new ModelAndView("listtalks");
+		if ("allcategories".equals(category)) {
+			modelView.addObject("talks", FileManager.getTalklist());
+		} else {
+			modelView.addObject("talks", FileManager.categorySearch(category));
+		}
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/speakersearch")
+	public ModelAndView handleApeakersSearchSbmit(@RequestParam String name) {
+		ModelAndView modelView = new ModelAndView("listtalks");
+		if ("allspeakers".equals(name)) {
+			modelView.addObject("talks", FileManager.getTalklist());
+		} else {
+			modelView.addObject("talks", FileManager.speakerSearch(name));
+		}
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/keywordsearch")
+	public ModelAndView handleKeywordSearchSbmit(@RequestParam String keyword) {
+		ModelAndView modelView = new ModelAndView("listtalks");
+		modelView.addObject("talks", FileManager.keywordSearch(keyword));
 		return modelView;
 	}
 

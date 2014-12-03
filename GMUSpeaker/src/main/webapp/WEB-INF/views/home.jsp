@@ -52,13 +52,22 @@
 				<ul class="nav nav-sidebar">
 					<li class="active"><a href="#" id="searchtalk">Search Talk</a></li>
 					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
-					<li><a href="#" id="listtalks">List All Talks</a></li>
 
 					<%
 						if ("speaker".equals(user.getRole())
 								|| "admin".equals(user.getRole())) {
 					%>
 					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
+					<%
+						}
+					%>
+
+					<li><a href="#" id="listtalks">List All Talks</a></li>
+
+					<%
+						if ("speaker".equals(user.getRole())
+								|| "admin".equals(user.getRole())) {
+					%>
 					<li><a href="#" id="addtalk">Add Talk</a></li>
 					<li><a href="#" id="edittalk">Edit Talk</a></li>
 					<li><a href="#" id="deletetalk">Delete Talk</a></li>

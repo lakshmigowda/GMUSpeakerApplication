@@ -151,21 +151,7 @@ public class FileManager {
 	}
 
 	public static ArrayList<Talk> getTalksForUser(String email) {
-		ArrayList<Talk> talklist = new ArrayList<Talk>();
-		try {
-			FileInputStream fis = new FileInputStream(TALKS_FILE);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			while (true) {
-				try {
-					talklist.add((Talk) ois.readObject());
-				} catch (EOFException e) {
-					ois.close();
-					break;
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		ArrayList<Talk> talklist = getTalklist();
 
 		Iterator<Talk> talkIterator = talklist.iterator();
 		while (talkIterator.hasNext()) {
@@ -374,5 +360,53 @@ public class FileManager {
 			}
 		}
 		return null;
+	}
+
+	public static ArrayList<Talk> categorySearch(String category) {
+		ArrayList<Talk> talklist = getTalklist();
+
+		Iterator<Talk> talkIterator = talklist.iterator();
+		while (talkIterator.hasNext()) {
+			Talk talk = talkIterator.next();
+			if (!talk.getCategories().toString().contains(category)) {
+				talkIterator.remove();
+			}
+		}
+
+		return talklist;
+	}
+
+	public static ArrayList<Talk> speakerSearch(String name) {
+		ArrayList<Talk> talklist = getTalklist();
+
+		Iterator<Talk> talkIterator = talklist.iterator();
+		while (talkIterator.hasNext()) {
+			Talk talk = talkIterator.next();
+			if (!talk.getUser().getName().equals(name)) {
+				talkIterator.remove();
+			}
+		}
+
+		return talklist;
+	}
+
+	public static ArrayList<Talk> keywordSearch(String keyword) {
+		ArrayList<Talk> talklist = getTalklist();
+
+		Iterator<Talk> talkIterator = talklist.iterator();
+		while (talkIterator.hasNext()) {
+			Talk talk = talkIterator.next();
+			if (!(talk.getTopicTitle().contains(keyword)
+					|| talk.getCategories().toString().contains(keyword)
+					|| talk.getAvs().toString().contains(keyword)
+					|| talk.getLocation().contains(keyword)
+					|| talk.getTopicTitle().contains(keyword)
+					|| talk.getUser().getName().contains(keyword) || talk
+					.getUser().getEmail().contains(keyword))) {
+				talkIterator.remove();
+			}
+		}
+
+		return talklist;
 	}
 }
