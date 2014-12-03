@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/GMUSpeaker/resources/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
+	href="/GMUSpeaker/resources/css/home.css" />
+<link rel="stylesheet" type="text/css"
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>

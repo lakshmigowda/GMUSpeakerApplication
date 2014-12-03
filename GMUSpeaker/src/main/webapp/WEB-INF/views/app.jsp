@@ -33,25 +33,40 @@
 							</ul>
 							<div id="myTabContent" class="tab-content">
 								<div class="tab-pane active in" id="login">
+
 									<div class="container">
-										<form:form method="POST" action="/GMUSpeaker/loginsubmit"
-											commandName="login" id="loginform" class="form-signin">
-											<table class="table borderless">
-												<tr>
-													<td>Email</td>
-													<td><form:input class="form-control" path="email"></form:input></td>
-												</tr>
-												<tr>
-													<td>Password:</td>
-													<td><form:password class="form-control"
-															path="password"></form:password></td>
-												</tr>
-												<tr>
-													<td align="right" colspan="2"><input id="loginbtn"
-														type="submit" class="btn btn-primary" value="Login"></td>
-												</tr>
-											</table>
-										</form:form>
+										<div class="row">
+											<div class="col-md-4">
+												<form:form method="POST" action="/GMUSpeaker/loginsubmit"
+													commandName="login" id="loginform" class="form-signin">
+													<table class="table borderless">
+														<tr>
+															<td>Email</td>
+															<td><form:input class="form-control" path="email"></form:input></td>
+														</tr>
+														<tr>
+															<td>Password:</td>
+															<td><form:password class="form-control"
+																	path="password"></form:password></td>
+														</tr>
+														<tr>
+															<td />
+															<td align="left"><input id="loginbtn" type="submit"
+																class="btn btn-primary" value="Login"></td>
+														</tr>
+													</table>
+												</form:form>
+											</div>
+											<div class="col-md-4" style="height: 150px; width: 50px">
+												<span
+													style="position: relative; top: 50%; left: 50%; display: block;">OR</span>
+											</div>
+											<div class="col-md-4" style="height: 150px; width: 150px">
+												<input id="guestbtn" type="button" class="btn btn-primary"
+													style="position: relative; top: 50%; left: 50%;"
+													value="Login as Guest">
+											</div>
+										</div>
 									</div>
 								</div>
 

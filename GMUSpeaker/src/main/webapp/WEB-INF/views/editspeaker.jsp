@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/GMUSpeaker/resources/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
+	href="/GMUSpeaker/resources/css/home.css" />
+<link rel="stylesheet" type="text/css"
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
@@ -24,7 +26,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Email</th>
-				<th>Delete</th>
+				<th>Edit</th>
 			</tr>
 			<c:choose>
 				<c:when test="${fn:length(speakers) > 0}">

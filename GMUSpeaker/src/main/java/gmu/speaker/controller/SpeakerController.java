@@ -53,6 +53,13 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/guestlogin")
+	public ModelAndView handleGuestLoginSbmit() {
+		ModelAndView modelView = new ModelAndView("home");
+		modelView.addObject("username", "Guest");
+		return modelView;
+	}
+
 	@RequestMapping(value = "/home")
 	public ModelAndView handleHomeRequest() {
 		ModelAndView modelView = new ModelAndView("home");

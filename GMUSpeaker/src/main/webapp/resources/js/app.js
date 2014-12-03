@@ -2,6 +2,12 @@ $(document)
 		.ready(
 				function() {
 					$('#tabs').tab();
+					
+					$("#guestbtn").click(function() {
+						$.get("/GMUSpeaker/guestlogin", function(data, status) {
+							window.location.replace("http://localhost:8080/GMUSpeaker/home");
+						});
+					});
 
 					$("#loginform")
 							.submit(
