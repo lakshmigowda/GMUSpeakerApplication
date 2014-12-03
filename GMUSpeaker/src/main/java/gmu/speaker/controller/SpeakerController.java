@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@SessionAttributes("username")
+@SessionAttributes({ "globalname", "globalrole" })
 public class SpeakerController {
 
 	@RequestMapping(value = "/app")
@@ -30,9 +30,10 @@ public class SpeakerController {
 
 	@RequestMapping(value = "/loginsubmit")
 	public ModelAndView handleLoginsubmit(@ModelAttribute Login login) {
-		String name = FileManager.checklogin(login);
+		User user = FileManager.checklogin(login);
 		ModelAndView modelView = new ModelAndView("home");
-		modelView.addObject("username", name);
+		modelView.addObject("globalname", user.getName());
+		modelView.addObject("globalrole", user.getRole());
 		return modelView;
 	}
 
@@ -40,7 +41,8 @@ public class SpeakerController {
 	public ModelAndView handleRegistersubmit(@ModelAttribute User register) {
 		FileManager.storeUser(register);
 		ModelAndView modelView = new ModelAndView("home");
-		modelView.addObject("username", register.getName());
+		modelView.addObject("globalname", register.getName());
+		modelView.addObject("globalrole", register.getRole());
 		return modelView;
 	}
 
@@ -49,14 +51,16 @@ public class SpeakerController {
 		ModelAndView modelView = new ModelAndView("app");
 		modelView.addObject("login", new Login());
 		modelView.addObject("register", new User());
-		modelView.addObject("username", "");
+		modelView.addObject("globalname", "");
+		modelView.addObject("globalrole", "");
 		return modelView;
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/guestlogin")
 	public ModelAndView handleGuestLoginSbmit() {
 		ModelAndView modelView = new ModelAndView("home");
-		modelView.addObject("username", "Guest");
+		modelView.addObject("globalname", "Guest");
+		modelView.addObject("globalrole", "guest");
 		return modelView;
 	}
 

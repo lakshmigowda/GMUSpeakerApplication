@@ -364,13 +364,13 @@ public class FileManager {
 		return usrelist;
 	}
 
-	public static String checklogin(Login login) {
+	public static User checklogin(Login login) {
 		ArrayList<User> usrelist = getUserlist();
 		Iterator<User> userIterator = usrelist.iterator();
 		while (userIterator.hasNext()) {
 			User user = userIterator.next();
 			if (user.getEmail().equals(login.getEmail())) {
-				return user.getName();
+				return user;
 			}
 		}
 		return null;
