@@ -56,6 +56,7 @@
 					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
 					<li><a href="#" id="addtalk">Add Talk</a></li>
 					<li><a href="#" id="edittalk">Edit Talk</a></li>
+					<li><a href="#" id="deletetalk">Delete Talk</a></li>
 					<%
 						}
 					%>
@@ -63,7 +64,6 @@
 					<%
 						if ("admin".equals(request.getAttribute("globalrole"))) {
 					%>
-					<li><a href="#" id="deletetalk">Delete Talk</a></li>
 					<li><a href="#" id="editspeaker">Edit Speaker</a></li>
 					<li><a href="#" id="deletespeaker">Delete Speaker</a></li>
 					<%
