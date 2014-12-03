@@ -170,7 +170,7 @@ public class FileManager {
 		Iterator<Talk> talkIterator = talklist.iterator();
 		while (talkIterator.hasNext()) {
 			Talk talk = talkIterator.next();
-			if (!talk.getSpeakerEmail().equals(speaker.getEmail())) {
+			if (!talk.getUser().getEmail().equals(speaker.getEmail())) {
 				talkIterator.remove();
 			}
 		}

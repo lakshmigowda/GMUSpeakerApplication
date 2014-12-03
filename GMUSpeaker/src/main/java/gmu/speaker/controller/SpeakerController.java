@@ -121,7 +121,7 @@ public class SpeakerController {
 	public ModelAndView handleAddtalksubmit(@ModelAttribute Talk addTalk,
 			HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("globaluser");
-		addTalk.setSpeakerEmail(user.getEmail());
+		addTalk.setUser(user);
 		FileManager.StoreTalk(addTalk);
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
