@@ -27,6 +27,12 @@
 				<th>Topic Title</th>
 				<th>Categories</th>
 				<th>A/V</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Location</th>
+				<th>Parking</th>
+				<th>Speaker</th>
+				<th>Email</th>
 				<th>Delete</th>
 			</tr>
 			<c:choose>
@@ -37,6 +43,12 @@
 							<td>${talk.topicTitle}</td>
 							<td>${talk.categories}</td>
 							<td>${talk.avs}</td>
+							<td>${talk.date}</td>
+							<td>${talk.time}</td>
+							<td>${talk.location}</td>
+							<td>${talk.parking}</td>
+							<td>${talk.user.name}</td>
+							<td>${talk.user.email}</td>
 							<td><button type="button"
 									class="btn btn-primary deletetalkbtn" id="${talk.id}">Delete</button></td>
 						</tr>

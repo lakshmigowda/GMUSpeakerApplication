@@ -47,7 +47,7 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/logout")
-	public ModelAndView handleLogoutSbmit() {
+	public ModelAndView handleLogoutSbmit(HttpServletRequest request) {
 		ModelAndView modelView = new ModelAndView("app");
 		modelView.addObject("login", new Login());
 		modelView.addObject("register", new User());
@@ -67,7 +67,10 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/home")
-	public ModelAndView handleHomeRequest() {
+	public ModelAndView handleHomeRequest(HttpServletRequest request) {
+		if (((User) request.getSession().getAttribute("globaluser")).getEmail() == null) {
+			return returnApp();
+		}
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
@@ -142,9 +145,16 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/deletetalk")
-	public ModelAndView handleDeletetalkRequest() {
+	public ModelAndView handleDeletetalkRequest(HttpServletRequest request) {
 		ModelAndView modelView = new ModelAndView("deletetalk");
-		modelView.addObject("talks", FileManager.getTalklist());
+		User globaluser = (User) request.getSession()
+				.getAttribute("globaluser");
+		if ("admin".equals(globaluser.getRole())) {
+			modelView.addObject("talks", FileManager.getTalklist());
+		} else if ("speaker".equals(globaluser.getRole())) {
+			modelView.addObject("talks",
+					FileManager.getTalksForUser(globaluser.getEmail()));
+		}
 		return modelView;
 	}
 
@@ -200,7 +210,9 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/edittalksubmit")
-	public ModelAndView handleEdittalksubmit(@ModelAttribute Talk editTalk) {
+	public ModelAndView handleEdittalksubmit(@ModelAttribute Talk editTalk,
+			HttpServletRequest request) {
+		editTalk.setUser((User) request.getSession().getAttribute("globaluser"));
 		FileManager.editTalk(editTalk);
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
@@ -239,6 +251,13 @@ public class SpeakerController {
 	public ModelAndView handleKeywordSearchSbmit(@RequestParam String keyword) {
 		ModelAndView modelView = new ModelAndView("listtalks");
 		modelView.addObject("talks", FileManager.keywordSearch(keyword));
+		return modelView;
+	}
+
+	public ModelAndView returnApp() {
+		ModelAndView modelView = new ModelAndView("app");
+		modelView.addObject("login", new Login());
+		modelView.addObject("register", new User());
 		return modelView;
 	}
 
