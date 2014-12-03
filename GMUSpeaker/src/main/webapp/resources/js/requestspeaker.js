@@ -2,6 +2,15 @@ $(document)
 		.ready(
 				function() {
 
+					$("#speakerscombo").change(function() {
+						var email = $('#speakerscombo').val();
+						var name = $('#speakerscombo :selected').text();
+						$('#speakername').val(name);
+						$('#speakeremail').val(email);
+					});
+
+					$('#speakerscombo').trigger('change');
+
 					$("#requestspeakerform")
 							.submit(
 									function(e) {

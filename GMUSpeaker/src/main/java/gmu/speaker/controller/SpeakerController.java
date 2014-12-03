@@ -138,10 +138,22 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/deletespeakersubmit")
-	public ModelAndView handleDeleteSpeakerSbmit(@RequestParam String id) {
-		FileManager.deleteSpeaker(id);
+	public ModelAndView handleDeleteSpeakerSbmit(@RequestParam String email) {
+		FileManager.deleteSpeaker(email);
 		ModelAndView modelView = new ModelAndView("deletespeaker");
 		modelView.addObject("speakers", FileManager.getSpeakerlist());
+		return modelView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/requesttalkspeakersubmit")
+	public ModelAndView handlerequesttalkspeakersubmit(
+			@RequestParam String email) {
+		Speaker speaker = FileManager.getSpeakerByEmail(email);
+		RequestSpeaker requestSpeaker = new RequestSpeaker();
+		requestSpeaker.setSpeaker(speaker);
+		ModelAndView modelView = new ModelAndView("requestspeaker");
+		modelView.addObject("requestSpeaker", requestSpeaker);
+		modelView.addObject("speakers", FileManager.getSpeakerMap());
 		return modelView;
 	}
 
@@ -175,9 +187,10 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/editspeakerrequest")
-	public ModelAndView handleEditSpeakerSbmit(@RequestParam String id) {
+	public ModelAndView handleEditSpeakerSbmit(@RequestParam String email) {
 		ModelAndView modelView = new ModelAndView("editspeakerform");
-		modelView.addObject("editSpeaker", FileManager.getSpeaker(id));
+		modelView
+				.addObject("editSpeaker", FileManager.getSpeakerByEmail(email));
 		return modelView;
 	}
 

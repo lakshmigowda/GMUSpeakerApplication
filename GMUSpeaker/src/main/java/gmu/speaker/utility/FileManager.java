@@ -179,7 +179,7 @@ public class FileManager {
 		return talklist;
 	}
 
-	public static String deleteSpeaker(String id) {
+	public static String deleteSpeaker(String email) {
 		ArrayList<Speaker> speakerlist = new ArrayList<Speaker>();
 		try {
 			speakerlist = getSpeakerlist();
@@ -187,7 +187,7 @@ public class FileManager {
 			Iterator<Speaker> speakerIterator = speakerlist.iterator();
 			while (speakerIterator.hasNext()) {
 				Speaker speaker = speakerIterator.next();
-				if (speaker.getId().equals(id)) {
+				if (speaker.getEmail().equals(email)) {
 					speakerIterator.remove();
 				}
 			}
@@ -293,12 +293,12 @@ public class FileManager {
 		return "Success";
 	}
 
-	public static Speaker getSpeaker(String id) {
+	public static Speaker getSpeakerByEmail(String email) {
 		ArrayList<Speaker> speakerlist = getSpeakerlist();
 		Iterator<Speaker> speakerIterator = speakerlist.iterator();
 		while (speakerIterator.hasNext()) {
 			Speaker speaker = speakerIterator.next();
-			if (speaker.getId().equals(id)) {
+			if (speaker.getEmail().equals(email)) {
 				return speaker;
 			}
 		}

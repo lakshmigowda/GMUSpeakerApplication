@@ -37,7 +37,7 @@
 							<td>${speaker.name}</td>
 							<td>${speaker.email}</td>
 							<td><button type="button"
-									class="btn btn-primary editspeakerbtn" id="${speaker.id}">Edit</button></td>
+									class="btn btn-primary editspeakerbtn" id="${speaker.email}">Edit</button></td>
 						</tr>
 
 					</c:forEach>

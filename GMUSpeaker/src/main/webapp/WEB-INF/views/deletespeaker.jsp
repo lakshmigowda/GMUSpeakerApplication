@@ -39,7 +39,7 @@
 							<td>${speaker.name}</td>
 							<td>${speaker.email}</td>
 							<td><button type="button"
-									class="btn btn-primary deletespeakerbtn" id="${speaker.id}">Delete</button></td>
+									class="btn btn-primary deletespeakerbtn" id="${speaker.email}">Delete</button></td>
 						</tr>
 
 					</c:forEach>

@@ -34,6 +34,7 @@
 						<th>Parking</th>
 						<th>Speaker</th>
 						<th>Email</th>
+						<th>Request Speaker</th>
 					</tr>
 
 					<c:forEach var="talk" items="${talks}" varStatus="counter">
@@ -47,6 +48,9 @@
 							<td>${talk.parking}</td>
 							<td>${talk.user.name}</td>
 							<td>${talk.user.email}</td>
+							<td><button type="button"
+									class="btn btn-primary requesttalkspeakerbtn"
+									id="${talk.user.email}">Request</button></td>
 						</tr>
 
 					</c:forEach>
@@ -57,6 +61,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<script src="/GMUSpeaker/resources/js/home.js"></script>
+	<script src="/GMUSpeaker/resources/js/listtalks.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
 </body>

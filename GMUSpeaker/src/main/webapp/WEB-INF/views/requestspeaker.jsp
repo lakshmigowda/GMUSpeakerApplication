@@ -26,15 +26,18 @@
 			<table class="table borderless">
 				<tr>
 					<td>Speaker:</td>
-					<td><form:select class="form-control" path="speaker.email">
+					<td><form:select class="form-control" path="speaker.email"
+							id="speakerscombo">
 							<form:options items="${speakers}" />
 						</form:select></td>
 					<td width="40px"></td>
 					<td>Name:</td>
-					<td><form:input class="form-control" path="speaker.name"></form:input></td>
+					<td><form:input class="form-control" path="speaker.name"
+							id="speakername"></form:input></td>
 					<td width="40px"></td>
 					<td>Email:</td>
-					<td><form:input class="form-control" path="speaker.email"></form:input></td>
+					<td><form:input class="form-control" path="speaker.email"
+							id="speakeremail"></form:input></td>
 
 				</tr>
 			</table>

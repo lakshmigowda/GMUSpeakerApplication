@@ -3,8 +3,8 @@ $(document).ready(
 			var self = $(this);
 			$(".deletespeakerbtn").click(
 					function() {
-						var id = $(this).attr('id');
-						$.get("/GMUSpeaker/deletespeakersubmit?id=" + id,
+						var email = $(this).attr('id');
+						$.get("/GMUSpeaker/deletespeakersubmit?email=" + email,
 								function(data, status) {
 									$('#result').html(data);
 								});

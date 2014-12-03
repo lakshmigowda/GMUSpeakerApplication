@@ -4,12 +4,11 @@ $(document)
 
 					$(".editspeakerbtn").click(
 							function() {
-								var id = $(this).attr('id');
-								$.get(
-										"/GMUSpeaker/editspeakerrequest?id="
-												+ id, function(data, status) {
-											$('#result').html(data);
-										});
+								var email = $(this).attr('id');
+								$.get("/GMUSpeaker/editspeakerrequest?email="
+										+ email, function(data, status) {
+									$('#result').html(data);
+								});
 
 							});
 
