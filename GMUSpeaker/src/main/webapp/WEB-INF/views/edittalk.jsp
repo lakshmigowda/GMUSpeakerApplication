@@ -20,23 +20,25 @@
 <body>
 
 	<div class="well">Edit Talk</div>
-	<p>Choose the talk to edit by clicking "Edit" button.</p>
+
 	<div id="content">
-		<table class="table">
-			<tr>
-				<th>Topic Title</th>
-				<th>Categories</th>
-				<th>A/V</th>
-				<th>Date</th>
-				<th>Time</th>
-				<th>Location</th>
-				<th>Parking</th>
-				<th>Speaker</th>
-				<th>Email</th>
-				<th>Edit</th>
-			</tr>
-			<c:choose>
-				<c:when test="${fn:length(talks) > 0}">
+		<c:choose>
+			<c:when test="${fn:length(talks) > 0}">
+				<p>Choose the talk to edit by clicking "Edit" button.</p>
+				<table class="table">
+					<tr>
+						<th>Topic Title</th>
+						<th>Categories</th>
+						<th>A/V</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Location</th>
+						<th>Parking</th>
+						<th>Speaker</th>
+						<th>Email</th>
+						<th>Edit</th>
+					</tr>
+
 					<c:forEach var="talk" items="${talks}" varStatus="counter">
 
 						<tr>
@@ -54,11 +56,13 @@
 						</tr>
 
 					</c:forEach>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
-		</table>
+
+				</table>
+			</c:when>
+			<c:otherwise>
+				<p>No talks found.</p>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<script src="/GMUSpeaker/resources/js/edittalk.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>

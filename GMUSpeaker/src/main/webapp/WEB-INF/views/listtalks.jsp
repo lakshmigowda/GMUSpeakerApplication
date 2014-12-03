@@ -21,22 +21,22 @@
 
 	<div class="well">All Talks</div>
 	<div id="content">
-		<table class="table">
-			<tr>
-				<th>Topic Title</th>
-				<th>Categories</th>
-				<th>A/V</th>
-				<th>Date</th>
-				<th>Time</th>
-				<th>Location</th>
-				<th>Parking</th>
-				<th>Speaker</th>
-				<th>Email</th>
-			</tr>
-			<c:choose>
-				<c:when test="${fn:length(talks) > 0}">
-					<c:forEach var="talk" items="${talks}" varStatus="counter">
+		<c:choose>
+			<c:when test="${fn:length(talks) > 0}">
+				<table class="table">
+					<tr>
+						<th>Topic Title</th>
+						<th>Categories</th>
+						<th>A/V</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Location</th>
+						<th>Parking</th>
+						<th>Speaker</th>
+						<th>Email</th>
+					</tr>
 
+					<c:forEach var="talk" items="${talks}" varStatus="counter">
 						<tr>
 							<td>${talk.topicTitle}</td>
 							<td>${talk.categories}</td>
@@ -50,11 +50,12 @@
 						</tr>
 
 					</c:forEach>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
-		</table>
+				</table>
+			</c:when>
+			<c:otherwise>
+				<p>No talks found.</p>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<script src="/GMUSpeaker/resources/js/home.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>

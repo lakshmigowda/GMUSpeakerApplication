@@ -21,16 +21,18 @@
 <body>
 
 	<div class="well">Delete Speaker</div>
-	<p>Choose the speaker to delete by clicking "Delete" button.</p>
+
 	<div id="content">
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Delete</th>
-			</tr>
-			<c:choose>
-				<c:when test="${fn:length(speakers) > 0}">
+		<c:choose>
+			<c:when test="${fn:length(speakers) > 0}">
+				<p>Choose the speaker to delete by clicking "Delete" button.</p>
+				<table class="table">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Delete</th>
+					</tr>
+
 					<c:forEach var="speaker" items="${speakers}" varStatus="counter">
 
 						<tr>
@@ -41,11 +43,12 @@
 						</tr>
 
 					</c:forEach>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
-		</table>
+				</table>
+			</c:when>
+			<c:otherwise>
+				<p>No speakers found.</p>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<script src="/GMUSpeaker/resources/js/deletespeaker.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>

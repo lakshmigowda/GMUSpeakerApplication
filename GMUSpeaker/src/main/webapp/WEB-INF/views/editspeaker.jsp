@@ -20,18 +20,19 @@
 <body>
 
 	<div class="well">Edit Speaker</div>
-	<p>Choose the speaker to edit by clicking "Edit" button.</p>
-	<div id="content">
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Edit</th>
-			</tr>
-			<c:choose>
-				<c:when test="${fn:length(speakers) > 0}">
-					<c:forEach var="speaker" items="${speakers}" varStatus="counter">
 
+	<div id="content">
+		<c:choose>
+			<c:when test="${fn:length(speakers) > 0}">
+				<p>Choose the speaker to edit by clicking "Edit" button.</p>
+				<table class="table">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Edit</th>
+					</tr>
+
+					<c:forEach var="speaker" items="${speakers}" varStatus="counter">
 						<tr>
 							<td>${speaker.name}</td>
 							<td>${speaker.email}</td>
@@ -40,11 +41,12 @@
 						</tr>
 
 					</c:forEach>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
-		</table>
+				</table>
+			</c:when>
+			<c:otherwise>
+				<p>No speakers found.</p>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<script src="/GMUSpeaker/resources/js/editspeaker.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
