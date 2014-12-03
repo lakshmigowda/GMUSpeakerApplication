@@ -1,5 +1,7 @@
 package gmu.speaker.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import gmu.speaker.model.Login;
 import gmu.speaker.model.RequestSpeaker;
 import gmu.speaker.model.Speaker;
@@ -116,7 +118,10 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/addtalksubmit")
-	public ModelAndView handleAddtalksubmit(@ModelAttribute Talk addTalk) {
+	public ModelAndView handleAddtalksubmit(@ModelAttribute Talk addTalk,
+			HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("globaluser");
+		addTalk.setSpeakerEmail(user.getEmail());
 		FileManager.StoreTalk(addTalk);
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;

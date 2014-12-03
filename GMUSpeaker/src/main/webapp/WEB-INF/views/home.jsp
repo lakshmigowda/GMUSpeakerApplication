@@ -18,7 +18,10 @@
 	href="/GMUSpeaker/resources/css/home.css" />
 
 </head>
-
+<%@ page import="gmu.speaker.model.User"%>
+<%
+	User user = (User) request.getAttribute("globaluser");
+%>
 
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -49,9 +52,10 @@
 				<ul class="nav nav-sidebar">
 					<li class="active"><a href="#" id="searchtalk">Search Talk</a></li>
 					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
+
 					<%
-						if ("speaker".equals(request.getAttribute("globalrole"))
-								|| "admin".equals(request.getAttribute("globalrole"))) {
+						if ("speaker".equals(user.getRole())
+								|| "admin".equals(user.getRole())) {
 					%>
 					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
 					<li><a href="#" id="addtalk">Add Talk</a></li>
@@ -62,7 +66,7 @@
 					%>
 
 					<%
-						if ("admin".equals(request.getAttribute("globalrole"))) {
+						if ("admin".equals(user.getRole())) {
 					%>
 					<li><a href="#" id="editspeaker">Edit Speaker</a></li>
 					<li><a href="#" id="deletespeaker">Delete Speaker</a></li>
