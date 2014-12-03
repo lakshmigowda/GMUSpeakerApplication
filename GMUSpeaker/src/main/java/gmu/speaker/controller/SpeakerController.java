@@ -86,6 +86,7 @@ public class SpeakerController {
 	public ModelAndView handleRequestspeakerRequest() {
 		ModelAndView modelView = new ModelAndView("requestspeaker");
 		modelView.addObject("requestSpeaker", new RequestSpeaker());
+		modelView.addObject("speakers", FileManager.getSpeakerMap());
 		return modelView;
 	}
 

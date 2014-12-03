@@ -9,6 +9,7 @@ public class RequestSpeaker implements Serializable {
 	private static final long serialVersionUID = 8456539398018674109L;
 	private String id;
 	private String requesterID;
+	private Speaker speaker;
 	private String organization;
 	private String organizationaddressline1;
 	private String orgperson;
@@ -285,5 +286,13 @@ public class RequestSpeaker implements Serializable {
 
 	public void setRequesterID(String requesterID) {
 		this.requesterID = requesterID;
+	}
+
+	public Speaker getSpeaker() {
+		return speaker;
+	}
+
+	public void setSpeaker(Speaker speaker) {
+		this.speaker = speaker;
 	}
 }

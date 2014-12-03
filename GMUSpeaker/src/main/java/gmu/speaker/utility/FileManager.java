@@ -15,6 +15,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class FileManager {
@@ -129,6 +131,19 @@ public class FileManager {
 			e.printStackTrace();
 		}
 		return speakerlist;
+	}
+
+	public static Map<String, String> getSpeakerMap() {
+		ArrayList<Speaker> speakerlist = getSpeakerlist();
+
+		Map<String, String> speakerMap = new LinkedHashMap<String, String>();
+
+		Iterator<Speaker> speakerIterator = speakerlist.iterator();
+		while (speakerIterator.hasNext()) {
+			Speaker speaker = speakerIterator.next();
+			speakerMap.put(speaker.getEmail(), speaker.getName());
+		}
+		return speakerMap;
 	}
 
 	public static ArrayList<Talk> getTalklist() {

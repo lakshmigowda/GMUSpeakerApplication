@@ -19,9 +19,26 @@
 <body>
 	<div class="well">Request Speaker</div>
 	<div id="content">
-		<h4 style="margin-left: 20px;">Organization Information</h4>
+
 		<form:form method="POST" action="/GMUSpeaker/requestspeakersubmit"
 			commandName="requestSpeaker" id="requestspeakerform">
+			<h4 style="margin-left: 20px;">Speaker Information</h4>
+			<table class="table borderless">
+				<tr>
+					<td>Speaker:</td>
+					<td><form:select class="form-control" path="speaker.email">
+							<form:options items="${speakers}" />
+						</form:select></td>
+					<td width="40px"></td>
+					<td>Name:</td>
+					<td><form:input class="form-control" path="speaker.name"></form:input></td>
+					<td width="40px"></td>
+					<td>Email:</td>
+					<td><form:input class="form-control" path="speaker.email"></form:input></td>
+
+				</tr>
+			</table>
+			<h4 style="margin-left: 20px;">Organization Information</h4>
 			<table class="table borderless">
 				<tr>
 					<td width="200px">Organization:</td>
