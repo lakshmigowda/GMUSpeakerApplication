@@ -38,9 +38,6 @@
 				<li><a href="#">Welcome ${username}!</a></li>
 				<li><a href="#" id="logout">Logout</a></li>
 			</ul>
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search...">
-			</form>
 		</div>
 	</div>
 	</nav>
