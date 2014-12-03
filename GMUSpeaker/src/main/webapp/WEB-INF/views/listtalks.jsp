@@ -19,8 +19,7 @@
 </head>
 <body>
 
-	<div class="well">Edit Talk</div>
-	<p>Choose the talk to edit by clicking "Edit" button.</p>
+	<div class="well">All Talks</div>
 	<div id="content">
 		<table class="table">
 			<tr>
@@ -33,7 +32,6 @@
 				<th>Parking</th>
 				<th>Speaker</th>
 				<th>Email</th>
-				<th>Edit</th>
 			</tr>
 			<c:choose>
 				<c:when test="${fn:length(talks) > 0}">
@@ -49,8 +47,6 @@
 							<td>${talk.parking}</td>
 							<td>${talk.user.name}</td>
 							<td>${talk.user.email}</td>
-							<td><button type="button"
-									class="btn btn-primary edittalkbtn" id="${talk.id}">Edit</button></td>
 						</tr>
 
 					</c:forEach>
@@ -60,6 +56,6 @@
 			</c:choose>
 		</table>
 	</div>
-	<script src="/GMUSpeaker/resources/js/edittalk.js"></script>
+	<script src="/GMUSpeaker/resources/js/home.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
 </body>

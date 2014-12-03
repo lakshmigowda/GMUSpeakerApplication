@@ -52,6 +52,7 @@
 				<ul class="nav nav-sidebar">
 					<li class="active"><a href="#" id="searchtalk">Search Talk</a></li>
 					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
+					<li><a href="#" id="listtalks">List All Talks</a></li>
 
 					<%
 						if ("speaker".equals(user.getRole())

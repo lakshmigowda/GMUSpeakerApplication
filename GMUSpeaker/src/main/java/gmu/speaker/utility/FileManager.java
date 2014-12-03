@@ -150,17 +150,17 @@ public class FileManager {
 		return talklist;
 	}
 
-	public static ArrayList<Talk> getTalksForSpeaker(Speaker speaker) {
+	public static ArrayList<Talk> getTalksForUser(String email) {
 		ArrayList<Talk> talklist = new ArrayList<Talk>();
 		try {
-			FileInputStream fis = new FileInputStream(SPEAKERS_FILE);
+			FileInputStream fis = new FileInputStream(TALKS_FILE);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			while (true) {
 				try {
 					talklist.add((Talk) ois.readObject());
 				} catch (EOFException e) {
 					ois.close();
-					return talklist;
+					break;
 				}
 			}
 		} catch (Exception e) {
@@ -170,7 +170,7 @@ public class FileManager {
 		Iterator<Talk> talkIterator = talklist.iterator();
 		while (talkIterator.hasNext()) {
 			Talk talk = talkIterator.next();
-			if (!talk.getUser().getEmail().equals(speaker.getEmail())) {
+			if (!talk.getUser().getEmail().equals(email)) {
 				talkIterator.remove();
 			}
 		}

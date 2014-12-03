@@ -180,9 +180,16 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(value = "/edittalk")
-	public ModelAndView handleEdittalkRequest() {
+	public ModelAndView handleEdittalkRequest(HttpServletRequest request) {
 		ModelAndView modelView = new ModelAndView("edittalk");
-		modelView.addObject("talks", FileManager.getTalklist());
+		User globaluser = (User) request.getSession()
+				.getAttribute("globaluser");
+		if ("admin".equals(globaluser.getRole())) {
+			modelView.addObject("talks", FileManager.getTalklist());
+		} else if ("speaker".equals(globaluser.getRole())) {
+			modelView.addObject("talks",
+					FileManager.getTalksForUser(globaluser.getEmail()));
+		}
 		return modelView;
 	}
 
@@ -197,6 +204,13 @@ public class SpeakerController {
 	public ModelAndView handleEdittalksubmit(@ModelAttribute Talk editTalk) {
 		FileManager.editTalk(editTalk);
 		ModelAndView modelView = new ModelAndView("home");
+		return modelView;
+	}
+
+	@RequestMapping(value = "/listtalks")
+	public ModelAndView handleGettalksRequest() {
+		ModelAndView modelView = new ModelAndView("listtalks");
+		modelView.addObject("talks", FileManager.getTalklist());
 		return modelView;
 	}
 

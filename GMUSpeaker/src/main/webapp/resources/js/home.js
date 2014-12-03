@@ -55,6 +55,12 @@ $(document).ready(function() {
 		$(this.parentNode).addClass("active");
 	});
 
+	$("#listtalks").click(function() {
+		self.listtalks();
+		$(".nav-sidebar li").removeClass("active");
+		$(this.parentNode).addClass("active");
+	});
+
 });
 
 (function($) {
@@ -95,6 +101,11 @@ $(document).ready(function() {
 	};
 	jQuery.fn.edittalk = function() {
 		$.get("/GMUSpeaker/edittalk", function(data, status) {
+			$('#result').html(data);
+		});
+	};
+	jQuery.fn.listtalks = function() {
+		$.get("/GMUSpeaker/listtalks", function(data, status) {
 			$('#result').html(data);
 		});
 	};

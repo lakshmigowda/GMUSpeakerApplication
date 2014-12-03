@@ -25,12 +25,29 @@
 				<tr>
 					<td width="150px;">Topic Title:</td>
 					<td><form:input class="form-control" path="topicTitle" /></td>
+					<td width="150px;">Date:</td>
+					<td><form:input class="form-control" path="date" /></td>
 				</tr>
 				<tr>
-					<td colspan="2">Categories:</td>
+					<td>Timing:</td>
+					<td><form:input class="form-control" path="time" /></td>
+					<td>Location:</td>
+					<td><form:input class="form-control" path="location" /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><table>
+					<td>Parking:</td>
+					<td><label class="radio-inline"> <form:radiobutton
+								path="parking" value="yes" />Yes
+					</label> <label class="radio-inline"> <form:radiobutton
+								path="parking" value="no" />No
+					</label></td>
+					<td colspan="2" />
+				</tr>
+				<tr>
+					<td colspan="4">Categories:</td>
+				</tr>
+				<tr>
+					<td colspan="4"><table>
 							<tr height="40px;">
 								<td width="300px;"><form:checkbox path="categories"
 										value="Aging" />Aging</td>
@@ -151,10 +168,10 @@
 						</table></td>
 				</tr>
 				<tr>
-					<td colspan="2">A/V:</td>
+					<td colspan="4">A/V:</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr height="40px;">
 								<td width="150px;"><form:checkbox path="avs"
@@ -191,7 +208,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="right"><input id="submit" type="submit"
+					<td colspan="4" align="right"><input id="submit" type="submit"
 						class="btn btn-primary" value="Submit"></td>
 				</tr>
 			</table>
