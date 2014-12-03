@@ -35,8 +35,8 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Welcome ${globalname}, You have logged in
-						as ${globalrole}!</a></li>
+				<li><a href="#">Welcome ${globaluser.name}, You have logged
+						in as ${globaluser.role}!</a></li>
 				<li><a href="#" id="logout">Logout</a></li>
 			</ul>
 		</div>

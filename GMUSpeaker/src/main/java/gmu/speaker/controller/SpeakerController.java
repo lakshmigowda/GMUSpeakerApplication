@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@SessionAttributes({ "globalname", "globalrole" })
+@SessionAttributes({ "globaluser" })
 public class SpeakerController {
 
 	@RequestMapping(value = "/app")
@@ -32,8 +32,7 @@ public class SpeakerController {
 	public ModelAndView handleLoginsubmit(@ModelAttribute Login login) {
 		User user = FileManager.checklogin(login);
 		ModelAndView modelView = new ModelAndView("home");
-		modelView.addObject("globalname", user.getName());
-		modelView.addObject("globalrole", user.getRole());
+		modelView.addObject("globaluser", user);
 		return modelView;
 	}
 
@@ -41,8 +40,7 @@ public class SpeakerController {
 	public ModelAndView handleRegistersubmit(@ModelAttribute User register) {
 		FileManager.storeUser(register);
 		ModelAndView modelView = new ModelAndView("home");
-		modelView.addObject("globalname", register.getName());
-		modelView.addObject("globalrole", register.getRole());
+		modelView.addObject("globaluser", register);
 		return modelView;
 	}
 
@@ -51,16 +49,18 @@ public class SpeakerController {
 		ModelAndView modelView = new ModelAndView("app");
 		modelView.addObject("login", new Login());
 		modelView.addObject("register", new User());
-		modelView.addObject("globalname", "");
-		modelView.addObject("globalrole", "");
+		modelView.addObject("globaluser", new User());
 		return modelView;
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/guestlogin")
 	public ModelAndView handleGuestLoginSbmit() {
 		ModelAndView modelView = new ModelAndView("home");
-		modelView.addObject("globalname", "Guest");
-		modelView.addObject("globalrole", "guest");
+		User guestUser = new User();
+		guestUser.setName("Guest");
+		guestUser.setEmail("guest@gmu.edu");
+		guestUser.setRole("guest");
+		modelView.addObject("globaluser", guestUser);
 		return modelView;
 	}
 
