@@ -35,7 +35,7 @@ $(document)
 													error : function(jqXHR,
 															textStatus,
 															errorThrown) {
-														alert("couldn't submit the data!")
+														alert("Wrong Credentials!")
 													}
 												});
 
