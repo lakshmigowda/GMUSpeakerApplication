@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div id="content">
-		<div class="well">Edit Speaker Form</div>
+		<div class="well">Speaker Form Edit</div>
 
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">

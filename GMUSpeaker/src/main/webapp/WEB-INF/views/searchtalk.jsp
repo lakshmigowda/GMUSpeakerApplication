@@ -18,21 +18,21 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
-	<div class="well">Search Talk</div>
+	<div class="well">Talk Search</div>
 	<div id="content" style="width: 800px;">
 		<table class="table borderless">
 			<tbody>
 				<tr>
-					<td colspan="3"><p>Choose from categories or speakers then
+					<td colspan="3"><p>Choose from topics or speakers then
 							click the "submit" button. As an alternative, you may use keyword
 							search.</p></td>
 				</tr>
 				<tr>
-					<td>Categories:</td>
+					<td>Topic:</td>
 					<td><select id="categorycombo" name="category"
 						class="form-control">
 							<option value="allcategories" selected="selected">ALL
-								CATEGORIES</option>
+								TOPICS</option>
 							<option value="Aging">Aging</option>
 							<option value="American Culture">American Culture</option>
 							<option value="Arts">Arts</option>
@@ -91,7 +91,7 @@
 							class="btn btn-primary">Submit</button></td>
 				</tr>
 				<tr>
-					<td>Speakers:</td>
+					<td>Speaker:</td>
 					<td><select id="speakercombo" name="speaker"
 						class="form-control">
 							<option value="allspeakers" selected="selected">ALL

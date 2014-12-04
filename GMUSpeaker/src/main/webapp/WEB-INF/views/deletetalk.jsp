@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<div class="well">Delete Talk</div>
+	<div class="well">Talk Deletion</div>
 
 	<div id="content">
 		<c:choose>
@@ -27,9 +27,9 @@
 				<p>Choose the talk to delete by clicking "Delete" button.</p>
 				<table class="table">
 					<tr>
-						<th>Topic Title</th>
-						<th>Categories</th>
-						<th>A/V</th>
+						<th>Talk Title</th>
+						<th>Topic</th>
+						<th>Equipment</th>
 						<th>Date</th>
 						<th>Time</th>
 						<th>Location</th>

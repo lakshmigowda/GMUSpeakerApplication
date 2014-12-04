@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<div class="well">Delete Speaker</div>
+	<div class="well">Speaker deletion</div>
 
 	<div id="content">
 		<c:choose>

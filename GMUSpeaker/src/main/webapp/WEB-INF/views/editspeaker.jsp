@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<div class="well">Edit Speaker</div>
+	<div class="well">Speaker Edit</div>
 
 	<div id="content">
 		<c:choose>

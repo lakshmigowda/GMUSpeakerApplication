@@ -17,7 +17,7 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
-	<div class="well">Request Speaker</div>
+	<div class="well">Speaker Request</div>
 	<div id="content">
 
 		<form:form method="POST" action="/GMUSpeaker/requestspeakersubmit"

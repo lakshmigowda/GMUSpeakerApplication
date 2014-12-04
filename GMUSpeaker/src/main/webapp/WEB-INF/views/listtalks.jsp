@@ -19,15 +19,15 @@
 </head>
 <body>
 
-	<div class="well">All Talks</div>
+	<div class="well">Talks' List</div>
 	<div id="content">
 		<c:choose>
 			<c:when test="${fn:length(talks) > 0}">
 				<table class="table">
 					<tr>
-						<th>Topic Title</th>
-						<th>Categories</th>
-						<th>A/V</th>
+						<th>Talk Title</th>
+						<th>Topic</th>
+						<th>Equipment</th>
 						<th>Date</th>
 						<th>Time</th>
 						<th>Location</th>

@@ -17,13 +17,13 @@
 	href="/GMUSpeaker/resources/css/dashboard.css" />
 </head>
 <body>
-	<div class="well">Add Talk</div>
+	<div class="well">Talk Addition</div>
 	<div id="content">
 		<form:form method="POST" action="/GMUSpeaker/addtalksubmit"
 			commandName="addTalk" id="addtalkform">
 			<table class="table borderless">
 				<tr>
-					<td width="150px;">Topic Title:</td>
+					<td width="150px;">Talk Title:</td>
 					<td><form:input class="form-control" path="topicTitle" /></td>
 					<td width="150px;">Date:</td>
 					<td><form:input class="form-control" path="date" /></td>
@@ -44,7 +44,7 @@
 					<td colspan="2" />
 				</tr>
 				<tr>
-					<td colspan="4">Categories:</td>
+					<td colspan="4">Topic:</td>
 				</tr>
 				<tr>
 					<td colspan="4"><table>
@@ -124,7 +124,9 @@
 										value="Literature, Poetry and Writing" />Literature, Poetry
 									and Writing</td>
 								<td />
-								<td><form:checkbox path="categories" value="None" />None</td>
+								<td><form:checkbox path="categories"
+										value="Washington Metropolitan Regional Issues" />Washington
+									Metropolitan Regional Issues</td>
 								<td />
 								<td><form:checkbox path="categories"
 										value="Nonprofit Organizations and Charities" />Nonprofit
@@ -154,9 +156,8 @@
 								<td><form:checkbox path="categories" value="Transportation" />Transportation
 								</td>
 								<td />
-								<td><form:checkbox path="categories"
-										value="Washington Metropolitan Regional Issues" />Washington
-									Metropolitan Regional Issues</td>
+
+								<td><form:checkbox path="categories" value="None" />None</td>
 								<td />
 								<td>
 									<div class="input-group">
@@ -169,7 +170,7 @@
 						</table></td>
 				</tr>
 				<tr>
-					<td colspan="4">A/V:</td>
+					<td colspan="4">Equipment:</td>
 				</tr>
 				<tr>
 					<td colspan="4">
