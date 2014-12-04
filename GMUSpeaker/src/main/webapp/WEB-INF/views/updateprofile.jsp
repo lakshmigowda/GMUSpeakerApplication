@@ -20,34 +20,14 @@
 	<div id="content">
 		<div class="well">Become Speaker</div>
 
-		<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<p class="navbar-text">
-					If you are a current or retired member of Mason s faculty or staff,
-					or a Mason alum, and would like to participate in the Mason
-					Speakers program, please complete the form below. All speakers are
-					involved on a volunteer basis. Speaking engagements are made by the
-					<a href="http://relations.gmu.edu/community-relations/"
-						target="_blank">Office of Community and Local Government
-						Relations </a> and free of charge to community organizations.
-				</p>
-				<p class="navbar-text">
-					For more information about the program, or to notify us of a
-					problem with submission of this form, please contact <a
-						href="mailto:sgallag5@gmu.edu" target="_blank">Sarah Gallagher</a>
-					, Mason Speakers Coordinator, via <a href="mailto:sgallag5@gmu.edu"
-						target="_blank">email</a> or by calling (703) 993-8761.
-				</p>
-			</div>
-		</div>
-		</nav>
-		<form:form method="POST" action="/GMUSpeaker/becomespeakersubmit"
-			commandName="becomeSpeaker" id="becomespeakerform">
+		<form:form method="POST" action="/GMUSpeaker/updateprofilesubmit"
+			commandName="profile" id="updatepfrofileform">
 			<table class="table borderless">
 				<tr>
 					<td width="200px">Name:</td>
-					<td><form:input class="form-control" path="name" /></td>
+					<td><form:input class="form-control" path="name"
+							disabled="true" /> <form:input path="name" hidden="true" /> <form:input
+							path="id" hidden="true"></form:input></td>
 					<td width="40px;" />
 					<td width="200px">Mason Employee:</td>
 					<td><label class="radio-inline"> <form:radiobutton
@@ -86,7 +66,8 @@
 				</tr>
 				<tr>
 					<td>Email:</td>
-					<td><form:input class="form-control" path="email" /></td>
+					<td><form:input class="form-control" path="email"
+							disabled="true" /> <form:input path="email" hidden="true" /></td>
 					<td></td>
 					<td colspan="2" rowspan="2"><form:textarea
 							class="form-control" path="biography" cols="50" rows="5" /></td>
@@ -100,6 +81,6 @@
 
 		</form:form>
 	</div>
-	<script src="/GMUSpeaker/resources/js/becomespeaker.js"></script>
+	<script src="/GMUSpeaker/resources/js/updateprofile.js"></script>
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
 </body>

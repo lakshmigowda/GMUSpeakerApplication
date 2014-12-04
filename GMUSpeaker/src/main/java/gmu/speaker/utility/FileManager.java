@@ -60,6 +60,17 @@ public class FileManager {
 		if (speaker != null) {
 			speaker.setId(UUID.randomUUID().toString());
 		}
+
+		ArrayList<Speaker> speakerlist = getSpeakerlist();
+
+		Iterator<Speaker> speakerIterator = speakerlist.iterator();
+		while (speakerIterator.hasNext()) {
+			Speaker sp = speakerIterator.next();
+			if (sp.getEmail().equals(speaker.getEmail())) {
+				return "success";
+			}
+		}
+
 		ObjectOutputStream os = null;
 		try {
 
@@ -198,6 +209,33 @@ public class FileManager {
 			while (speakerIterator.hasNext()) {
 				Speaker speaker = speakerIterator.next();
 				StoreSpeaker(speaker);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "Success";
+	}
+
+	public static String deleteUser(String email) {
+		ArrayList<User> userList = new ArrayList<User>();
+		try {
+			userList = getUserlist();
+
+			Iterator<User> userIterator = userList.iterator();
+			while (userIterator.hasNext()) {
+				User user = userIterator.next();
+				if (user.getEmail().equals(email)) {
+					userIterator.remove();
+				}
+			}
+
+			new File(USERS_FILE).delete();
+
+			userIterator = userList.iterator();
+			while (userIterator.hasNext()) {
+				User user = userIterator.next();
+				storeUser(user);
 			}
 
 		} catch (Exception e) {

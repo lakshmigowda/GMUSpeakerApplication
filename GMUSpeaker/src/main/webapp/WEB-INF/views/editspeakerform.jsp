@@ -47,7 +47,8 @@
 			<table class="table borderless">
 				<tr>
 					<td width="200px">Name:</td>
-					<td><form:input class="form-control" path="name" /></td>
+					<td><form:input class="form-control" path="name"
+							disabled="true" /> <form:input path="name" hidden="true"></form:input></td>
 					<td width="40px;" />
 					<td width="200px">Mason Employee:</td>
 					<td><label class="radio-inline"> <form:radiobutton
@@ -86,7 +87,8 @@
 				</tr>
 				<tr>
 					<td>Email:</td>
-					<td><form:input class="form-control" path="email" /></td>
+					<td><form:input class="form-control" path="email"
+							disabled="true" /> <form:input path="email" hidden="true"></form:input></td>
 					<td></td>
 					<td colspan="2" rowspan="2"><form:textarea
 							class="form-control" path="biography" cols="50" rows="5" /></td>

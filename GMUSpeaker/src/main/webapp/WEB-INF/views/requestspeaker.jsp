@@ -33,11 +33,13 @@
 					<td width="40px"></td>
 					<td>Name:</td>
 					<td><form:input class="form-control" path="speaker.name"
-							id="speakername"></form:input></td>
+							id="speakername" disabled="true"></form:input> <form:input
+							path="speaker.name" hidden="true"></form:input></td>
 					<td width="40px"></td>
 					<td>Email:</td>
 					<td><form:input class="form-control" path="speaker.email"
-							id="speakeremail"></form:input></td>
+							id="speakeremail" disabled="true"></form:input> <form:input
+							path="speaker.email" hidden="true" /></td>
 
 				</tr>
 			</table>

@@ -19,8 +19,8 @@ $(document).ready(function() {
 		$(".nav-sidebar li").removeClass("active");
 		$(this.parentNode).addClass("active");
 	});
-	$("#becomespeaker").click(function() {
-		self.becomespeaker();
+	$("#updateprofile").click(function() {
+		self.updateprofile();
 		$(".nav-sidebar li").removeClass("active");
 		$(this.parentNode).addClass("active");
 	});
@@ -74,8 +74,8 @@ $(document).ready(function() {
 			$('#result').html(data);
 		});
 	};
-	jQuery.fn.becomespeaker = function() {
-		$.get("/GMUSpeaker/becomespeaker", function(data, status) {
+	jQuery.fn.updateprofile = function() {
+		$.get("/GMUSpeaker/updateprofile", function(data, status) {
 			$('#result').html(data);
 		});
 	};

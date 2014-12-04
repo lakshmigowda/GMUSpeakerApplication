@@ -2,7 +2,7 @@ $(document)
 		.ready(
 				function() {
 
-					$("#becomespeakerform")
+					$("#updateprofileform")
 							.submit(
 									function(e) {
 										e.preventDefault();
@@ -29,6 +29,6 @@ $(document)
 									});
 
 					$('#submit').on('click', function() {
-						$("#becomespeakerform").submit();
+						$("#updateprofileform").submit();
 					});
 				});

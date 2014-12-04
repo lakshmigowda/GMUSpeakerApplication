@@ -41,6 +41,12 @@ public class SpeakerController {
 	@RequestMapping(value = "/registersubmit")
 	public ModelAndView handleRegistersubmit(@ModelAttribute User register) {
 		FileManager.storeUser(register);
+		if ("speaker".equals(register.getRole())) {
+			Speaker speaker = new Speaker();
+			speaker.setName(register.getName());
+			speaker.setEmail(register.getEmail());
+			FileManager.StoreSpeaker(speaker);
+		}
 		ModelAndView modelView = new ModelAndView("home");
 		modelView.addObject("globaluser", register);
 		return modelView;
@@ -98,17 +104,20 @@ public class SpeakerController {
 		return modelView;
 	}
 
-	@RequestMapping(value = "/becomespeaker")
-	public ModelAndView handleBecomespeakerRequest() {
-		ModelAndView modelView = new ModelAndView("becomespeaker");
-		modelView.addObject("becomeSpeaker", new Speaker());
+	@RequestMapping(value = "/updateprofile")
+	public ModelAndView handleupdateprofileRequest(HttpServletRequest request) {
+		ModelAndView modelView = new ModelAndView("updateprofile");
+		String email = ((User) request.getSession().getAttribute("globaluser"))
+				.getEmail();
+		Speaker speaker = FileManager.getSpeakerByEmail(email);
+		modelView.addObject("profile", speaker);
 		return modelView;
 	}
 
-	@RequestMapping(value = "/becomespeakersubmit")
-	public ModelAndView handleBecomespeakersubmit(
-			@ModelAttribute Speaker becomeSpeaker) {
-		FileManager.StoreSpeaker(becomeSpeaker);
+	@RequestMapping(value = "/updateprofilesubmit")
+	public ModelAndView handleupdateprofilesubmit(
+			@ModelAttribute Speaker profile) {
+		FileManager.editSpeaker(profile);
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;
 	}
@@ -140,6 +149,7 @@ public class SpeakerController {
 	@RequestMapping(method = RequestMethod.GET, value = "/deletespeakersubmit")
 	public ModelAndView handleDeleteSpeakerSbmit(@RequestParam String email) {
 		FileManager.deleteSpeaker(email);
+		FileManager.deleteUser(email);
 		ModelAndView modelView = new ModelAndView("deletespeaker");
 		modelView.addObject("speakers", FileManager.getSpeakerlist());
 		return modelView;
@@ -217,7 +227,7 @@ public class SpeakerController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/edittalkrequest")
-	public ModelAndView handleEditTalkSbmit(@RequestParam String id) {
+	public ModelAndView handleEditTalkRequest(@RequestParam String id) {
 		ModelAndView modelView = new ModelAndView("edittalkform");
 		modelView.addObject("editTalk", FileManager.getTalk(id));
 		return modelView;
@@ -226,7 +236,6 @@ public class SpeakerController {
 	@RequestMapping(value = "/edittalksubmit")
 	public ModelAndView handleEdittalksubmit(@ModelAttribute Talk editTalk,
 			HttpServletRequest request) {
-		editTalk.setUser((User) request.getSession().getAttribute("globaluser"));
 		FileManager.editTalk(editTalk);
 		ModelAndView modelView = new ModelAndView("home");
 		return modelView;

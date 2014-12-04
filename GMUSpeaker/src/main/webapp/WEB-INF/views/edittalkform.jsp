@@ -213,6 +213,7 @@
 				</tr>
 			</table>
 			<form:input path="id" hidden="true"></form:input>
+			<form:input path="user.email" hidden="true"></form:input>
 		</form:form>
 	</div>
 	<script src="/GMUSpeaker/resources/js/edittalk.js"></script>

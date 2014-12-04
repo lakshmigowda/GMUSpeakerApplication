@@ -22,7 +22,7 @@
 			<div class="span12">
 				<div class="" id="loginModal">
 					<div class="modal-header">
-						<h3>Welcome to GMUSpeaker !</h3>
+						<h3>Welcome to GMU Speakers Bureau!</h3>
 					</div>
 					<div class="modal-body">
 						<div class="well">
@@ -53,6 +53,9 @@
 															<td />
 															<td align="left"><input id="loginbtn" type="submit"
 																class="btn btn-primary" value="Login"></td>
+														</tr>
+														<tr>
+															<td colspan="2"></td>
 														</tr>
 													</table>
 												</form:form>
@@ -87,15 +90,15 @@
 												<td><form:password class="form-control" path="password"></form:password></td>
 											</tr>
 											<tr>
-												<td>Password(Confirm):</td>
+												<td>Re-type password:</td>
 												<td><form:password class="form-control"
 														path="repassword"></form:password></td>
 											</tr>
 											<tr>
 												<td>Role:</td>
 												<td><form:select class="form-control" path="role">
-														<option value="viewer">Viewer</option>
 														<option value="speaker">Speaker</option>
+														<option value="viewer">Viewer</option>
 													</form:select></td>
 											</tr>
 											<tr>
