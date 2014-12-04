@@ -50,18 +50,8 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
+					<li><div class="well">Talk</div></li>
 					<li class="active"><a href="#" id="searchtalk">Search Talk</a></li>
-					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
-
-					<%
-						if ("speaker".equals(user.getRole())
-								|| "admin".equals(user.getRole())) {
-					%>
-					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
-					<%
-						}
-					%>
-
 					<li><a href="#" id="listtalks">List All Talks</a></li>
 
 					<%
@@ -74,6 +64,18 @@
 					<%
 						}
 					%>
+
+					<li><div class="well">Speaker</div></li>
+					<%
+						if ("speaker".equals(user.getRole())
+								|| "admin".equals(user.getRole())) {
+					%>
+					<li><a href="#" id="becomespeaker">Become Speaker</a></li>
+					<%
+						}
+					%>
+
+					<li><a href="#" id="requestspeaker">Request Speaker</a></li>
 
 					<%
 						if ("admin".equals(user.getRole())) {
