@@ -114,6 +114,7 @@
 				</div>
 			</div>
 		</div>
+		<p>For any help, please contact Lakshmi Gowda (lvenkat2@gmu.edu)</p>
 	</div>
 
 	<script src="/GMUSpeaker/resources/js/jquery-2.1.1.js"></script>
