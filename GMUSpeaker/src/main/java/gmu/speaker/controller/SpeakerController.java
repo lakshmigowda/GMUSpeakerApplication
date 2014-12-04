@@ -30,6 +30,12 @@ public class SpeakerController {
 		return modelView;
 	}
 
+	@RequestMapping(value = "/feedback")
+	public ModelAndView handleFeedback() {
+		ModelAndView modelView = new ModelAndView("feedback");
+		return modelView;
+	}
+
 	@RequestMapping(value = "/loginsubmit")
 	public ModelAndView handleLoginsubmit(@ModelAttribute Login login) {
 		User user = FileManager.checklogin(login);

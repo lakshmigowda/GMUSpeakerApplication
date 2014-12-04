@@ -9,6 +9,13 @@ $(document).ready(function() {
 		});
 	});
 
+	$("#feedback").click(function() {
+		$.get("/GMUSpeaker/feedback", function(data, status) {
+			$('#result').html(data);
+			$(".nav-sidebar li").removeClass("active");
+		});
+	});
+
 	$("#searchtalk").click(function() {
 		self.searchtalk();
 		$(".nav-sidebar li").removeClass("active");
