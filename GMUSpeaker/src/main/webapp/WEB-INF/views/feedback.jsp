@@ -34,12 +34,12 @@
 					<td><input type="text" class="form-control" /></td>
 				</tr>
 				<tr>
-					<td>Rating [0 (Poor)-5 (Excellent)]:</td>
+					<td>Rating [ 0 (Poor)-5 (Excellent) ]:</td>
 					<td><input type="text" class="form-control" /></td>
 				</tr>
 				<tr>
 					<td>Comments:</td>
-					<td><input type="text" class="form-control" /></td>
+					<td><textarea rows="5" cols="50" class="form-control"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><button type="button"

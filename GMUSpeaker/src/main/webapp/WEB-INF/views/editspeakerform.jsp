@@ -20,28 +20,6 @@
 	<div id="content">
 		<div class="well">Speaker Form Edit</div>
 
-		<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<p class="navbar-text">
-					If you are a current or retired member of Mason s faculty or staff,
-					or a Mason alum, and would like to participate in the Mason
-					Speakers program, please complete the form below. All speakers are
-					involved on a volunteer basis. Speaking engagements are made by the
-					<a href="http://relations.gmu.edu/community-relations/"
-						target="_blank">Office of Community and Local Government
-						Relations </a> and free of charge to community organizations.
-				</p>
-				<p class="navbar-text">
-					For more information about the program, or to notify us of a
-					problem with submission of this form, please contact <a
-						href="mailto:sgallag5@gmu.edu" target="_blank">Sarah Gallagher</a>
-					, Mason Speakers Coordinator, via <a href="mailto:sgallag5@gmu.edu"
-						target="_blank">email</a> or by calling (703) 993-8761.
-				</p>
-			</div>
-		</div>
-		</nav>
 		<form:form method="POST" action="/GMUSpeaker/editspeakersubmit"
 			commandName="editSpeaker" id="editspeakerform">
 			<table class="table borderless">

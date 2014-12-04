@@ -31,16 +31,12 @@
 							<form:options items="${speakers}" />
 						</form:select></td>
 					<td width="40px"></td>
-					<td>Name:</td>
-					<td><form:input class="form-control" path="speaker.name"
-							id="speakername" disabled="true"></form:input> <form:input
-							path="speaker.name" hidden="true"></form:input></td>
-					<td width="40px"></td>
 					<td>Email:</td>
 					<td><form:input class="form-control" path="speaker.email"
 							id="speakeremail" disabled="true"></form:input> <form:input
 							path="speaker.email" hidden="true" /></td>
-
+					<td><form:input id="speakername" path="speaker.name"
+							hidden="true"></form:input></td>
 				</tr>
 			</table>
 			<h4 style="margin-left: 20px;">Organization Information</h4>

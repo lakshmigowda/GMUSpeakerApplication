@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div id="content">
-		<div class="well">Profile Update</div>
+		<div class="well">Speaker Profile</div>
 
 		<form:form method="POST" action="/GMUSpeaker/updateprofilesubmit"
 			commandName="profile" id="updatepfrofileform">
